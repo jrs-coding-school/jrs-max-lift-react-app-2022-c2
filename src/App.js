@@ -12,11 +12,13 @@ function App() {
       carousel
       one rep max calculation?
       <LiftForm />
-      save and cancel button?
+      save and cancel button? ADDED - 9/1/22
       */}
       <Nav />
       <h1>Title</h1>
       <LiftForm />
+      <button>save</button>
+      <button>cancel</button>
     </div>
   );
 }
