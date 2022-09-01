@@ -1,4 +1,5 @@
 import React from 'react'
+import EditWorkoutModal from '../editWorkoutModal/EditWorkoutModal'
 import './HistoryData.css'
 
 export default function HistoryData() {
@@ -10,6 +11,7 @@ export default function HistoryData() {
       shown in the history page based on which workout is selected or 
       maybe do accordions
       */}
+      <EditWorkoutModal />
     </div>
   )
 }
