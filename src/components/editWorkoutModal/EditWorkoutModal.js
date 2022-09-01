@@ -3,6 +3,11 @@ import './EditWorkoutModal.css'
 
 export default function EditWorkoutModal() {
   return (
-    <div>EditWorkoutModal</div>
+    <div>EditWorkoutModal
+
+      {/* 
+      lift form
+      */}
+    </div>
   )
 }

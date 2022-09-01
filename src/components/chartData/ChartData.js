@@ -3,6 +3,10 @@ import './ChartData.css'
 
 export default function ChartData() {
   return (
-    <div>ChartData</div>
+    <div>ChartData
+      {/* 
+      similar to the history data, it goes on the history page
+      */}
+    </div>
   )
 }

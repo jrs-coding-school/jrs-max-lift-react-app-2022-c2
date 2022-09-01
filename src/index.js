@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProgressPage from './components/progressPage/ProgressPage';
+import EntryPage from './components/entryPage/EntryPage';
+import HistoryPage from './components/historyPage/HistoryPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/progress" element={<ProgressPage />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/login" element={<EntryPage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
