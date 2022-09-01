@@ -13,10 +13,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/progress" element={<ProgressPage />} />
-        <Route path="/history" element={<HistoryPage />} />
-        <Route path="/login" element={<EntryPage />} />
+        <Route path="/" element={<App />}>
+          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/login" element={<EntryPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
