@@ -1,0 +1,50 @@
+/* app color scheme
+#EBECF0
+#595E6E
+#A6ABBD
+#FBEAD0
+#C2B299
+*/
+
+nav {
+    font-size: 18pt;
+    background-color: rgb(15, 14, 14);
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+}
+
+nav .left {
+    display: flex;
+    gap: 1rem;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: unset;
+}
+
+/* mouse over link */
+/* a:hover {
+    transition: all 300ms;
+    color: #C2B299;
+} */
+
+a:active {
+    color: white;
+    /* transform: translateY(4px); */
+}
+
+button.login {
+    background-color: #A6ABBD;
+    margin-bottom: 7px;
+}
