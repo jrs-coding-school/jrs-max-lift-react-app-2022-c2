@@ -15,7 +15,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     top: 0;
-
 }
 
 nav .left {
@@ -26,6 +25,7 @@ nav .left {
 /* unvisited link */
 a:link {
     color: white;
+    text-decoration: none;
 }
 
 /* visited link */
@@ -44,6 +44,7 @@ a:active {
     /* transform: translateY(4px); */
 }
 
-.login {
+button.login {
     background-color: #A6ABBD;
+    margin-bottom: 7px;
 }
