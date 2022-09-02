@@ -9,7 +9,6 @@ export default function ProgressPage() {
       {/* 
        progress cards
       */}
-      <Nav />
       <ProgressCard />
     </div>
   )

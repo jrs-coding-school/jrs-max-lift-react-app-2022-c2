@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProgressPage from './components/progressPage/ProgressPage';
 import EntryPage from './components/entryPage/EntryPage';
 import HistoryPage from './components/historyPage/HistoryPage';
+import HomePage from './components/homePage/HomePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="/home" element={<HomePage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/login" element={<EntryPage />} />

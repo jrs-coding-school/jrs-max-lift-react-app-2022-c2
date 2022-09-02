@@ -9,7 +9,7 @@ export default function EditWorkoutModal() {
       {/* 
       lift form
       */}
-      <LiftForm />
+      {/* <LiftForm /> */}
     </div>
   )
 }
