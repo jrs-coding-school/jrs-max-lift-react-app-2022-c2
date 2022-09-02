@@ -26,10 +26,20 @@ export default function HistoryData() {
       */}
 
       {isModalOpen && (
-        <Modal title="Edit Workout History"
+        <Modal title="Edit Lift History"
           closeModal={toggleIsModalOpen} >
 
-          <div>Hi, i'm in the modal now</div>
+          <div>
+            <label>Weight:
+              <input type="text" placeholder='edit weight' />
+            </label>
+
+            <br></br>
+
+            <label>Reps:
+              <input type="text" placeholder='edit reps' />
+            </label>
+          </div>
 
           <button onClick={toggleIsModalOpen}>
             Close

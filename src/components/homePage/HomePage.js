@@ -19,9 +19,7 @@ export default function HomePage() {
     return (
         <div>
 
-            <h1>Title</h1>
-
-            <h4></h4>
+            <h1>Strength Tracker</h1>
 
             <LiftForm workout={workout} setWorkout={setWorkout} />
 
