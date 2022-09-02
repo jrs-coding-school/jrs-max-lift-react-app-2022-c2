@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Modal.css'
 
-export default function Modal() {
-  return (
-    <div>Modal
+export default function Modal({ title, children, closeModal }) {
 
-      {/* not sure this needs to exist since we have editworkoutmodal */}
-    </div>
-  )
+    var backgroundRef = useRef();
+
+    function handleBackgroundClicked(e) {
+        console.log("modal clicked somewhere")
+        if (e.target === backgroundRef.current) {
+            console.log("background was clicked")
+            closeModal && closeModal();
+        } else {
+            console.log("not exactyle the background")
+        }
+    }
+
+    return (
+        <div className='modal-root'
+            onClick={handleBackgroundClicked}
+            ref={backgroundRef}>
+            <div className='modal'>
+                <h2>{title}</h2>
+                {children}
+            </div>
+        </div>
+    )
 }

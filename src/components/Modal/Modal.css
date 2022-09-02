@@ -1,0 +1,38 @@
+.modal-root {
+    background-color: rgba(0, 0, 0, 0.468);
+    position: fixed;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(3.5px);
+}
+
+.modal-root .modal {
+
+    width: fit-content;
+    min-width: 50%;
+
+    /*  adjusts the color of todo item card  */
+    background-color: #b98e5259;
+
+    box-shadow: 0 8px 32px 0 rgba(44, 27, 8, 0.499);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1.5rem;
+
+
+}
+
+.modal-root h2 {
+    user-select: none;
+    color: #6f421b;
+    font-weight: 800;
+    padding-bottom: 1rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
