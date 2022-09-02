@@ -7,7 +7,6 @@ import './HistoryPage.css'
 export default function HistoryPage() {
   return (
     <div>HistoryPage
-      <Nav />
       <HistoryData />
       <ChartData />
     </div>

@@ -20,8 +20,8 @@ export default function Nav() {
         </Link>
       </div>
 
-      <div class="right">
-        <button class="login">
+      <div className="right">
+        <button className="login">
           <Link to="/login">Log in</Link>
         </button>
       </div>

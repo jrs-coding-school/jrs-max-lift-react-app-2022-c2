@@ -21,21 +21,11 @@ function App() {
   return (
     <div className="App">
       App
-      {/* 
-      nav
-      title
-      carousel
-      one rep max calculation?
-      <LiftForm />
-      save and cancel button? ADDED - 9/1/22
-      */}
 
       <Nav />
 
-      <h1>Title</h1>
-      <LiftForm workout={workout} setWorkout={setWorkout} />
-      <button>save</button>
-      <button>cancel</button>
+      <Outlet />
+
     </div>
   );
 }

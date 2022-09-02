@@ -19,8 +19,25 @@ export default function LoginForm() {
   }
 
   return (
-    <div>LoginForm</div>
+    <div>
+      <h4>Log in</h4>
+
+      <label>Username: </label>
+      <input
+        type='text'
+        name='username'
+        value={user.username}
+        onChange={handleEntryFormChange}
+      />
+
+      <label>Password: </label>
+      <input
+        type='password'
+        name='password'
+        value={user.password}
+        onChange={handleEntryFormChange}
+      />
+
+    </div>
   )
-
-
 }
