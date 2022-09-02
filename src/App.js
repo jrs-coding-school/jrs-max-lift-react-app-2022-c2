@@ -17,8 +17,8 @@ function App() {
       <Nav />
       <h1>Title</h1>
       <LiftForm />
-      <button>save</button>
       <button>cancel</button>
+      <button>save</button>
     </div>
   );
 }
