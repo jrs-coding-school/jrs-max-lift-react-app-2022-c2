@@ -33,7 +33,7 @@ function App() {
       <Nav />
 
       <h1>Title</h1>
-      <LiftForm />
+      <LiftForm workout={workout} setWorkout={setWorkout} />
       <button>save</button>
       <button>cancel</button>
     </div>
