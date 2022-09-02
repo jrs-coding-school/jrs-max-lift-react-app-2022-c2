@@ -8,9 +8,7 @@ import OnboardingWizard from './onboarding/OnboardingWizard';
 
 export default function EntryPage() {
 
-  const [isLogin, setisLogin] = useState(false);
-
-
+  const [isLogin, setisLogin] = useState(true);
 
   function toggleLoginForm() {
     setisLogin(!isLogin);
