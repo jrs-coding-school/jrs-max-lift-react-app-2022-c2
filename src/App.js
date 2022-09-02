@@ -34,11 +34,8 @@ function App() {
 
       <h1>Title</h1>
       <LiftForm />
-<<<<<<< HEAD
-      <button>cancel</button>
       <button>save</button>
-=======
->>>>>>> bf509f3dbf9481bfa087ce4e2b31f113f2e87033
+      <button>cancel</button>
     </div>
   );
 }
