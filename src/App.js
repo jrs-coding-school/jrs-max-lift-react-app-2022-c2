@@ -1,31 +1,44 @@
-import { useState } from 'react';
+import { createContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import './App.css';
-import LiftForm from './components/liftForm/LiftForm';
 import Nav from './components/Nav/Nav';
+import { useLocalStorage } from './hooks/useLocalStorage';
+
+export const UserContext = createContext(null);
 
 function App() {
 
-  const [workout, setWorkout] = useState({
-    // this needs to be the table `excersises` from sql. also need more parameters
-    name: 'Squat',
-    weight: 0,
-    reps: 0,
-  })
-  const [oneRepMax, setOneRepMax] = useState(0)
+  const [activeUser, setUser, unsetUser] = useLocalStorage('activeUser', {
+    // id: '',
+    username: '',
+    password: '',
+    height: 0, // inches
+    weight: 0, // weight
+    age: 0, // years
+    sex: '' // 'm' / 'f'
+  });
 
-  function handleCalcClick(e) {
-    setOneRepMax(Math.floor(workout.weight * (1 + workout.reps / 30)));
+  function login(newUser) {
+    setUser(newUser);
   }
 
+  function logout() {
+    unsetUser();
+  }
+
+  // useEffect(() => {
+  //   // storing input name
+  //   localStorage.setItem("user", JSON.stringify(user));
+  // }, [user]);
+
   return (
-    <div className="App">
+    <UserContext.Provider value={{ activeUser, login, logout }}>
+      <div className="App">
+        <Nav />
 
-      <Nav />
-
-      <Outlet />
-
-    </div>
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 }
 

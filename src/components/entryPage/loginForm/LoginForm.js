@@ -1,8 +1,13 @@
 import React from 'react'
+import { useContext } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
+import { UserContext } from '../../../App';
 import './LoginForm.css'
 
 export default function LoginForm() {
+
+  const { login } = useContext(UserContext)
 
   const [user, setUser] = useState({
     username: '',
@@ -10,7 +15,6 @@ export default function LoginForm() {
   })
 
   function handleEntryFormChange(e) {
-    e.preventDefault();
     const { name, value } = e.target;
     setUser({
       ...user,
@@ -18,27 +22,46 @@ export default function LoginForm() {
     })
   }
 
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    // http.login(user)
+    //   .then(response => {
+    //     let user = response.data;
+    //     login(user)
+    //   })
+    //   .catch(() => { })
+
+  }
+
+  // useEffect(() => {
+  //   // storing input name
+  //   localStorage.setItem("user", JSON.stringify(user));
+  // }, [user]);
+
   return (
     <div className='login'>
-      <h4>Log in</h4>
+      <form onSubmit={handleFormSubmit}>
+        <h4>Log in</h4>
 
-      <label>Username: </label>
-      <input
-        type='text'
-        name='username'
-        value={user.username}
-        onChange={handleEntryFormChange}
-      />
+        <label>Username: </label>
+        <input
+          type='text'
+          name='username'
+          value={user.username}
+          onChange={handleEntryFormChange}
+        />
 
-      <label>Password: </label>
-      <input
-        type='password'
-        name='password'
-        value={user.password}
-        onChange={handleEntryFormChange}
-      />
+        <label>Password: </label>
+        <input
+          type='password'
+          name='password'
+          value={user.password}
+          onChange={handleEntryFormChange}
+        />
 
-      <button>Log in</button>
+        <button type='submit'>Log in</button>
+      </form>
 
     </div>
   )
