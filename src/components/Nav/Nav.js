@@ -8,7 +8,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <div class="left">
+      <div className="left">
         <Link to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>

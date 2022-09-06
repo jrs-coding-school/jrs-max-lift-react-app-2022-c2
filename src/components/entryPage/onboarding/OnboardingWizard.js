@@ -2,8 +2,12 @@ import React from 'react'
 import './OnboardingWizard.css'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import { useContext } from 'react';
+import { UserContext } from '../../../App';
 
 export default function OnboardingWizard() {
+
+    const { login } = useContext(UserContext);
 
     const [user, setUser] = useState({
         // id: '',
@@ -14,6 +18,12 @@ export default function OnboardingWizard() {
         age: 0, // years
         sex: '' // 'm' / 'f'
     })
+
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem("user", JSON.stringify(user));
+    }, [user]);
+
     const [currentStep, setCurrentStep] = useState(0);
 
     const steps = [
@@ -148,9 +158,9 @@ function HeightStep({ nextStep, output, prevStep }) {
     // This is an array filled with objects for the <select/> tag with the heights.
     // it conatains the format to be displayed and also the value in inches
     let heights = [];
-    for (let i = 2; i < 9; i++) {
-        for (let k = 0; k < 12; k++) {
-            heights.push({ value: (i * 12 + k), label: `${i}'${k}"` })
+    for (let i = 8; i > 2; i--) {
+        for (let j = 11; j >= 0; j--) {
+            heights.push({ value: ((i * 12) + j), label: `${i}'${j}"` })
         }
     }
 
@@ -173,23 +183,17 @@ function HeightStep({ nextStep, output, prevStep }) {
     //     },
     // ]
 
-    const [feet, setFeet] = useState(5);
-    const [inches, setInches] = useState(8);
+    const [heightInInches, setHeightInInches] = useState(68)
 
     function onInputChange(e) {
-        const { name, value } = e.target;
-
-        if (name == 'feet') {
-            setFeet(value)
-        } else if (name == 'inches') {
-            setInches(value)
-        }
+        const { value } = e.target;
+        setHeightInInches(Number(value))
     }
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        // 'output' height in inches total
-        output(Number((feet) * 12) + Number(inches))
+
+        output(heightInInches)
         nextStep && nextStep();
     }
 
@@ -197,32 +201,17 @@ function HeightStep({ nextStep, output, prevStep }) {
         <form onSubmit={handleFormSubmit}>
             <h4>Height</h4>
 
-            <select>
+            {/* <label>Height: </label> */}
+            <select
+                name="height"
+                value={heightInInches}
+                onChange={onInputChange}
+                required
+            >
                 {heights.map(h => (
                     <option value={h.value}>{h.label}</option>
                 ))}
             </select>
-
-
-            <label>feet:</label>
-            <input
-                type='number'
-                placeholder="6'"
-                name="feet"
-                value={feet}
-                onChange={onInputChange}
-                required
-            />
-
-            <label>inches:</label>
-            <input
-                type='number'
-                placeholder='6"'
-                name="inches"
-                value={inches}
-                onChange={onInputChange}
-                required
-            />
 
             <button type='button' onClick={prevStep}>prev</button>
             <button type='submit' value='submit'>
@@ -235,7 +224,7 @@ function HeightStep({ nextStep, output, prevStep }) {
 function AgeSexStep({ nextStep, output, prevStep }) {
 
     const [mOrF, setMOrF] = useState('')
-    const [age, setAge] = useState(0)
+    const [age, setAge] = useState('')
 
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -260,6 +249,8 @@ function AgeSexStep({ nextStep, output, prevStep }) {
                 name='age'
                 value={age}
                 onChange={handleAgeChange}
+                min='0'
+                max='120'
                 required
             />
 
@@ -310,6 +301,8 @@ function WeightStep({ nextStep, prevStep, output }) {
                 name='weight'
                 value={weight}
                 onChange={handleWeightChange}
+                min='0'
+                max='800'
                 required
             />
 
