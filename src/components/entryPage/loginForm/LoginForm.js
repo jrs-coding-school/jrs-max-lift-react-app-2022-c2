@@ -19,7 +19,7 @@ export default function LoginForm() {
   }
 
   return (
-    <div>
+    <div className='login'>
       <h4>Log in</h4>
 
       <label>Username: </label>

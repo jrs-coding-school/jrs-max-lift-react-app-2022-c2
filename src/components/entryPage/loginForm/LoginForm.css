@@ -1,0 +1,10 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: fit-content;
+    min-width: 50%;
+
+    color: #313131;
+}

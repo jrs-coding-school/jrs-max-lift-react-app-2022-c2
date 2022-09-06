@@ -4,14 +4,19 @@
 #A6ABBD
 #FBEAD0
 #C2B299
+#313131 -- use for text and nav bar
 */
 
 nav {
     font-size: 18pt;
     font-family: "LeagueGothic", "Helvetica Neue", "Helvetica", "Arial";
 
-    background-color: #595E6E;
+    background-color: #313131;
     color: white;
+    box-shadow: 0 5.5px 12px 0 rgba(44, 27, 8, 0.499);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;

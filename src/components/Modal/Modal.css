@@ -1,5 +1,6 @@
 .modal-root {
     background-color: rgba(0, 0, 0, 0.468);
+    /* background-color: #A6ABBD; */
     position: fixed;
     inset: 0;
 
@@ -16,9 +17,12 @@
 
     width: fit-content;
     min-width: 50%;
+    /* display: flex;   --this puts everything in a single column
+    flex-direction: column; */
 
     /*  adjusts the color of edit lift history card  */
-    background-color: #C2B299;
+    background-color: #8e8e8e;
+    color: #313131;
 
     box-shadow: 0 8px 32px 0 rgba(44, 27, 8, 0.499);
     backdrop-filter: blur(2.5px);
@@ -30,7 +34,8 @@
 
 .modal-root h2 {
     user-select: none;
-    color: black;
+    /* color: #EBECF0; */
+    color: #313131;
     font-weight: 800;
     padding-bottom: 1rem;
     letter-spacing: 0.5px;
