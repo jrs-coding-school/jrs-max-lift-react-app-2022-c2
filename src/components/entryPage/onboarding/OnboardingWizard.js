@@ -1,4 +1,5 @@
 import React from 'react'
+import './OnboardingWizard.css'
 import { useEffect } from 'react';
 import { useState } from 'react'
 
@@ -70,7 +71,7 @@ export default function OnboardingWizard() {
         console.log(user);
     }, [user])
     return (
-        <div>
+        <div className='wizard-root'>
             <div className='wizard-view'>
                 {steps[currentStep]}
             </div>
@@ -143,6 +144,35 @@ function UsernamePasswordStep({ nextStep, output }) {
 
 function HeightStep({ nextStep, output, prevStep }) {
 
+
+    // This is an array filled with objects for the <select/> tag with the heights.
+    // it conatains the format to be displayed and also the value in inches
+    let heights = [];
+    for (let i = 2; i < 9; i++) {
+        for (let k = 0; k < 12; k++) {
+            heights.push({ value: (i * 12 + k), label: `${i}'${k}"` })
+        }
+    }
+
+    // const heights = [
+    //     {
+    //         value: 70,
+    //         label: `5'10"`
+    //     },
+    //     {
+    //         value: 69,
+    //         label: `5'9"`
+    //     },
+    //     {
+    //         value: 68,
+    //         label: `5'8"`
+    //     },
+    //     {
+    //         value: 67,
+    //         label: `5'7"`
+    //     },
+    // ]
+
     const [feet, setFeet] = useState(5);
     const [inches, setInches] = useState(8);
 
@@ -167,6 +197,13 @@ function HeightStep({ nextStep, output, prevStep }) {
         <form onSubmit={handleFormSubmit}>
             <h4>Height</h4>
 
+            <select>
+                {heights.map(h => (
+                    <option value={h.value}>{h.label}</option>
+                ))}
+            </select>
+
+
             <label>feet:</label>
             <input
                 type='number'
@@ -187,7 +224,7 @@ function HeightStep({ nextStep, output, prevStep }) {
                 required
             />
 
-            <button onClick={prevStep}>prev</button>
+            <button type='button' onClick={prevStep}>prev</button>
             <button type='submit' value='submit'>
                 next
             </button>
@@ -227,16 +264,20 @@ function AgeSexStep({ nextStep, output, prevStep }) {
             />
 
 
-            <div>
-                <div onClick={() => {
+            <div className='multi-option-group'>
+                <div className={`option ${mOrF == 'm' ? 'active' : ''}`} onClick={() => {
                     setMOrF('m')
-                }}>Male</div>
-                <div onClick={() => {
+                }}>
+                    Male
+                </div>
+                <div className={`option ${mOrF == 'f' ? 'active' : ''}`} onClick={() => {
                     setMOrF('f')
-                }}>Female</div>
+                }}>
+                    Female
+                </div>
             </div>
 
-            <button onClick={prevStep}>prev</button>
+            <button type='button' onClick={prevStep}>prev</button>
             <button type='submit'>next</button>
         </form>
     )
@@ -272,7 +313,7 @@ function WeightStep({ nextStep, prevStep, output }) {
                 required
             />
 
-            <button onClick={prevStep}>prev</button>
+            <button type='button' onClick={prevStep}>prev</button>
             <button type='submit'>next</button>
         </form>
     )

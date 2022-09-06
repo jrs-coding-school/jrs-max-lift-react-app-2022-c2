@@ -9,7 +9,7 @@ export default function Nav() {
   return (
     <nav>
       <div class="left">
-        <Link to='/'>
+        <Link to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
         <Link to="/progress"> 1 RMs&nbsp;
