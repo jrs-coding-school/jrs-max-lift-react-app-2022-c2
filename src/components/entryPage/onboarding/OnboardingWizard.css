@@ -1,0 +1,26 @@
+.wizard-root .multi-option-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 4px;
+    overflow: hidden;
+    gap: 2px;
+    background-color: black;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.wizard-root .option {
+    padding: 1rem;
+    background-color: rgb(193, 193, 193);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.wizard-root .option:hover {
+    filter: brightness(1.2);
+}
+
+.wizard-root .option.active {
+    background-color: aqua;
+}
