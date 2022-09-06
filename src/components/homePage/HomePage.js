@@ -25,7 +25,7 @@ export default function HomePage() {
 
             <h3>One rep max: {oneRepMax}lb</h3>
 
-            <button onClick={handleCalcClick}>
+            <button className='button' onClick={handleCalcClick}>
                 Calculate
             </button>
         </div>

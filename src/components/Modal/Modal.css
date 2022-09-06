@@ -1,5 +1,5 @@
 .modal-root {
-    background-color: rgba(0, 0, 0, 0.468);
+    background-color: #2c1b087f;
     /* background-color: #A6ABBD; */
     position: fixed;
     inset: 0;
@@ -10,31 +10,28 @@
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(3.5px);
     font-family: "LeagueGothic", "Helvetica Neue", "Helvetica", "Arial";
-    ;
+    user-select: none;
 }
 
 .modal-root .modal {
 
     width: fit-content;
     min-width: 50%;
-    /* display: flex;   --this puts everything in a single column
-    flex-direction: column; */
 
     /*  adjusts the color of edit lift history card  */
     background-color: #8e8e8e;
     color: #313131;
 
-    box-shadow: 0 8px 32px 0 rgba(44, 27, 8, 0.499);
+    box-shadow: 0 8px 32px 0 #2c1b087f;
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(3.5px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid #8e8e8e;
     padding: 1.5rem;
 }
 
 .modal-root h2 {
     user-select: none;
-    /* color: #EBECF0; */
     color: #313131;
     font-weight: 800;
     padding-bottom: 1rem;

@@ -12,7 +12,7 @@ export default function Nav() {
         <Link to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
-        <Link to="/progress"> 1 RMs&nbsp;
+        <Link to="/progress"> PRs&nbsp;
           <FontAwesomeIcon icon={faDumbbell} />
         </Link>
         <Link to="/history"> History&nbsp;

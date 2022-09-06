@@ -37,8 +37,8 @@ export default function LoginForm() {
         value={user.password}
         onChange={handleEntryFormChange}
       />
-
-      <button>Log in</button>
+      <br></br>
+      <button className='login'>Log in</button>
 
     </div>
   )

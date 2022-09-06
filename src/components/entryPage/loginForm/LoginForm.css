@@ -1,10 +1,20 @@
 .login {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
     width: fit-content;
     min-width: 50%;
 
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+
+
     color: #313131;
+    font-size: 18pt;
+    user-select: none;
 }
+
+/* body {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    align-items: center;
+} */

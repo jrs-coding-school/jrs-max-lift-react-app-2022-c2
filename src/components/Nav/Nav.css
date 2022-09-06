@@ -1,10 +1,11 @@
 /* app color scheme
-#EBECF0
-#595E6E
-#A6ABBD
-#FBEAD0
-#C2B299
-#313131 -- use for text and nav bar
+#A6ABBD (NOT USED YET)
+#FBEAD0 (NOT USED YET)
+#EBECF0 -- main background color and nav links
+#C2B299 -- used on hoverables for nav links
+#313131 -- used for text and nav bar
+#8e8e8e -- used for background color of modal
+#2c1b087f -- used for box shadows
 */
 
 nav {
@@ -12,8 +13,8 @@ nav {
     font-family: "LeagueGothic", "Helvetica Neue", "Helvetica", "Arial";
 
     background-color: #313131;
-    color: white;
-    box-shadow: 0 5.5px 12px 0 rgba(44, 27, 8, 0.499);
+    color: #EBECF0;
+    box-shadow: 0 5.5px 12px 0 #2c1b087f;
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(3.5px);
 
@@ -22,6 +23,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     top: 0;
+
+    user-select: none;
 }
 
 nav .left {
@@ -29,6 +32,8 @@ nav .left {
     gap: 1rem;
     font-size: 0.60em;
     margin-left: 7px;
+    color: #EBECF0;
+    /* user-select: none; */
 }
 
 nav .right {
@@ -37,7 +42,7 @@ nav .right {
 
 /* unvisited link */
 a:link {
-    color: white;
+    color: #EBECF0;
     text-decoration: none;
 }
 
@@ -52,12 +57,12 @@ a:hover {
 }
 
 a:active {
-    color: white;
+    color: #EBECF0;
     /* transform: translateY(4px); */
 }
 
 button.login {
-    background-color: white;
+    background-color: #EBECF0;
     margin-bottom: 7px;
     border-radius: 1em;
 }
