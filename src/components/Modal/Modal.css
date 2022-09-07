@@ -7,7 +7,8 @@
     display: grid;
     place-items: center;
 
-    background: rgba(255, 255, 255, 0.35);
+    /* adjusts the blurred background behind modal */
+    background: #ffffff59;
     backdrop-filter: blur(3.5px);
     font-family: "LeagueGothic", "Helvetica Neue", "Helvetica", "Arial";
     user-select: none;
@@ -20,7 +21,7 @@
 
     /*  adjusts the color of edit lift history card  */
     background-color: #8e8e8e;
-    color: #313131;
+    color: var(--darkest);
 
     box-shadow: 0 8px 32px 0 #2c1b087f;
     backdrop-filter: blur(2.5px);
@@ -32,7 +33,7 @@
 
 .modal-root h2 {
     user-select: none;
-    color: #313131;
+    color: var(--darkest);
     font-weight: 800;
     padding-bottom: 1rem;
     letter-spacing: 0.5px;

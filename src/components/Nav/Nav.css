@@ -1,18 +1,8 @@
-/* app color scheme
-#A6ABBD (NOT USED YET)
-#FBEAD0 (NOT USED YET)
-#EBECF0 -- main background color and nav links
-#C2B299 -- used on hoverables for nav links
-#313131 -- used for text and nav bar
-#8e8e8e -- used for background color of modal
-#2c1b087f -- used for box shadows
-*/
-
 nav {
     font-size: 24pt;
     font-family: "LeagueGothic", "Helvetica Neue", "Helvetica", "Arial";
 
-    background-color: #313131;
+    background-color: var(--darkest);
     color: #EBECF0;
     box-shadow: 0 5.5px 12px 0 #2c1b087f;
     backdrop-filter: blur(2.5px);
@@ -39,7 +29,7 @@ nav .left {
 }
 
 nav .right {
-    color: #313131;
+    color: var(--darkest);
 
     display: flex;
     justify-content: center;
@@ -54,6 +44,12 @@ nav button {
 nav .link {
     color: #EBECF0;
     text-decoration: none;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 /* visited link */
@@ -66,7 +62,7 @@ nav .link:hover {
 }
 
 nav .right .link {
-    color: #C2B299;
+    color: #00c6cf;
 }
 
 nav .link:active {

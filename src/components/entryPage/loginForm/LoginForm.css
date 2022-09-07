@@ -6,10 +6,19 @@
     margin-right: auto;
     width: 100px;
 
-
-    color: #313131;
+    color: var(--darkest);
     font-size: 18pt;
     user-select: none;
+
+    /* not sure if we want background color behind input form?? */
+    /* background-color: #A6ABBD;
+    border-radius: 8px; */
+
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 /* body {
