@@ -6,28 +6,23 @@ import './HomePage.css'
 export default function HomePage() {
     const [workout, setWorkout] = useState({
         // this needs to be the table `excersises` from sql. also need more parameters
-        name: 'Squat',
+        id: "",
+        name: '',
         weight: 0,
         reps: 0,
     })
-    const [oneRepMax, setOneRepMax] = useState(0)
 
-    function handleCalcClick(e) {
-        setOneRepMax(Math.floor(workout.weight * (1 + workout.reps / 30)));
-    }
+    var oneRepMax = Math.floor(workout.weight * (1 + workout.reps / 30))
 
     return (
         <div>
 
-            <h1>Strength Tracker</h1>
+            <h1>Calculate 1 Rep Max</h1>
 
             <LiftForm workout={workout} setWorkout={setWorkout} />
 
-            <h3>One rep max: {oneRepMax}lb</h3>
+            <h3>{workout.name} one rep max: {oneRepMax} lbs</h3>
 
-            <button className='button' onClick={handleCalcClick}>
-                Calculate
-            </button>
         </div>
     )
 }

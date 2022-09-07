@@ -40,11 +40,11 @@ export default function CreateAccountForm({ user, setUser }) {
   }
 
   return (
-    <div>
+    <div className='create_account'>
       <h4>Create New Account</h4>
 
       <label>Username: </label>
-      <input 
+      <input
         type='text'
         name='username'
         value={user.username}
@@ -52,7 +52,7 @@ export default function CreateAccountForm({ user, setUser }) {
       />
 
       <label>Password: </label>
-      <input 
+      <input
         type='password'
         name='password'
         value={user.password}
@@ -60,7 +60,7 @@ export default function CreateAccountForm({ user, setUser }) {
       />
 
       <label>Confirm Password: </label>
-      <input 
+      <input
         type='password'
         name='password'
         value={user.password}
@@ -70,13 +70,13 @@ export default function CreateAccountForm({ user, setUser }) {
 
 
       <label>Height: </label>
-      <input 
+      <input
         type='number'
         name='heightFeet'
         value={user.heightFeet}
         onChange={handleheightChange}
       />
-      <input 
+      <input
         type='number'
         name='heightInches'
         value={user.heightInches}
@@ -85,7 +85,7 @@ export default function CreateAccountForm({ user, setUser }) {
 
 
       <label>Weight: </label>
-      <input 
+      <input
         type='number'
         name='weight'
         value={user.weight}
@@ -93,7 +93,7 @@ export default function CreateAccountForm({ user, setUser }) {
       />
 
       <label>Age: </label>
-      <input 
+      <input
         type='number'
         name='age'
         value={user.age}
@@ -101,7 +101,7 @@ export default function CreateAccountForm({ user, setUser }) {
       />
 
       <label>Gender: </label>
-      <select 
+      <select
         type='text'
         name='gender'
         value={user.gender}
@@ -110,7 +110,7 @@ export default function CreateAccountForm({ user, setUser }) {
         <option value="" disabled>Gender</option>
         <option value="m">Male</option>
         <option value="f">Female</option>
-        
+
       </select>
     </div>
   )

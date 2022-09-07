@@ -45,21 +45,29 @@ export default function LoginForm() {
       <form onSubmit={handleFormSubmit}>
         <h4>Log in</h4>
 
-        <label>Username: </label>
-        <input
-          type='text'
-          name='username'
-          value={user.username}
-          onChange={handleEntryFormChange}
-        />
+        <div className='inputs-container'>
+          <div className='label-input-group'>
+            <label>Username: </label>
+            <input
+              type='text'
+              name='username'
+              value={user.username}
+              onChange={handleEntryFormChange}
+              placeholder="username"
+            />
+          </div>
 
-        <label>Password: </label>
-        <input
-          type={isPasswordVisible ? 'password' : 'text'}
-          name='password'
-          value={user.password}
-          onChange={handleEntryFormChange}
-        />
+          <div className='label-input-group'>
+            <label>Password: </label>
+            <input
+              type={isPasswordVisible ? 'password' : 'text'}
+              name='password'
+              value={user.password}
+              onChange={handleEntryFormChange}
+              placeholder="password"
+            />
+          </div>
+        </div>
 
         {isPasswordVisible
           ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>

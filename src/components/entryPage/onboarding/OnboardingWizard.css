@@ -5,7 +5,7 @@
     border-radius: 4px;
     overflow: hidden;
     gap: 2px;
-    background-color: #313131;
+    background-color: var(--darkest);
     justify-content: space-between;
     width: fit-content;
 }

@@ -12,10 +12,16 @@ export default function Nav() {
         <Link className='link' to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
-        <Link className='link' to="/progress"> PRs&nbsp;
+        <Link className='link' to="/progress">
+          <span>
+            PRs
+          </span>
           <FontAwesomeIcon icon={faDumbbell} />
         </Link>
-        <Link className='link' to="/history"> History&nbsp;
+        <Link className='link' to="/history">
+          <span>
+            History
+          </span>
           <FontAwesomeIcon icon={faBook} />
         </Link>
       </div>
