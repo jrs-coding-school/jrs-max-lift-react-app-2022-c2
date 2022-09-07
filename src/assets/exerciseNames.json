@@ -1,0 +1,21 @@
+[
+    {"id": 1, "name": "Bench Press"},
+    {"id": 2, "name": "Incline Bench Press"},
+    {"id": 3, "name": "DB Press"},
+    {"id": 4, "name": "BB OH Press"},
+    {"id": 5, "name": "DB OH Press"},
+    {"id": 6, "name": "Seated DB OH Press"},
+    {"id": 7, "name": "Push Press"},
+    {"id": 8, "name": "Jerk"},
+    {"id": 9, "name": "Back Squat"},
+    {"id": 10, "name": "Front Squat"},
+    {"id": 11, "name": "Bulgarian Split Squat"},
+    {"id": 12, "name": "Deadlift"},
+    {"id": 13, "name": "Romanian Deadlift"},
+    {"id": 14, "name": "Power Clean"},
+    {"id": 15, "name": "Clean"},
+    {"id": 16, "name": "Power Snatch"},
+    {"id": 17, "name": "Snatch"},
+    {"id": 18, "name": "Pull-up"},
+    {"id": 19, "name": "Push-up"}
+]
