@@ -9,21 +9,23 @@ export default function Nav() {
   return (
     <nav>
       <div className="left">
-        <Link to='/home'>
+        <Link className='link' to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
-        <Link to="/progress"> PRs&nbsp;
+        <Link className='link' to="/progress"> PRs&nbsp;
           <FontAwesomeIcon icon={faDumbbell} />
         </Link>
-        <Link to="/history"> History&nbsp;
+        <Link className='link' to="/history"> History&nbsp;
           <FontAwesomeIcon icon={faBook} />
         </Link>
       </div>
 
       <div className="right">
-        <button className="login">
-          <Link to="/login">Log in</Link>
-        </button>
+        <Link className='link' to="/login">
+          <button className="login">
+            Log in
+          </button>
+        </Link>
       </div>
     </nav>
 

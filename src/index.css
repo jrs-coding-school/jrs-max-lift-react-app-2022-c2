@@ -12,7 +12,35 @@ code {
     monospace;
 }
 
+/* styles all buttons on whole app */
 button {
   border: none;
   font: inherit;
+  font-size: 12pt;
+  font-weight: 500;
+  white-space: nowrap;
+
+  background-color: #EBECF0;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+}
+
+/* styles all hoverable buttons on app */
+button:hover {
+  background-color: #C2B299;
+  color: #313131;
+}
+
+/* styles a secondary styling for butons on app */
+button.primary {
+  background-color: black;
+  color: white;
+}
+
+button.primary:hover {
+  background-color: white;
+  color: black;
 }

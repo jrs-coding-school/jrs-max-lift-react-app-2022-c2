@@ -40,7 +40,7 @@ export default function LoginForm() {
   // }, [user]);
 
   return (
-    <div className='login'>
+    <div className='login-form'>
       <form onSubmit={handleFormSubmit}>
         <h4>Log in</h4>
 
@@ -60,7 +60,8 @@ export default function LoginForm() {
           onChange={handleEntryFormChange}
         />
 
-        <button type='submit'>Log in</button>
+        <button type='submit'
+          className='primary'>Log in</button>
       </form>
 
     </div>
