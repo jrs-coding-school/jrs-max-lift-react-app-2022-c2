@@ -61,7 +61,7 @@ export default function LoginForm() {
           onChange={handleEntryFormChange}
         />
 
-        {!isPasswordVisible
+        {isPasswordVisible
           ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
           : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
         }
