@@ -136,15 +136,10 @@ function UsernamePasswordStep({ nextStep, output }) {
                     required
                 />
 
-                <label>show password</label>
-                <input
-                    type='checkbox'
-                    name='isPassWordVisible'
-                    value={isPasswordVisible}
-                    onChange={() => {
-                        setisPasswordVisible(!isPasswordVisible)
-                    }}
-                />
+                {!isPasswordVisible
+                    ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
+                    : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
+                }
 
                 <button type="submit">next</button>
             </form>

@@ -8,6 +8,7 @@ import './LoginForm.css'
 export default function LoginForm() {
 
   const { login } = useContext(UserContext)
+  const [isPasswordVisible, setisPasswordVisible] = useState(false)
 
   const [user, setUser] = useState({
     username: '',
@@ -54,11 +55,16 @@ export default function LoginForm() {
 
         <label>Password: </label>
         <input
-          type='password'
+          type={isPasswordVisible ? 'password' : 'text'}
           name='password'
           value={user.password}
           onChange={handleEntryFormChange}
         />
+
+        {!isPasswordVisible
+          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
+          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
+        }
 
         <button type='submit'
           className='primary'>Log in</button>
