@@ -1,8 +1,6 @@
 import React from 'react'
 import './EntryPage.css'
-import Nav from '../Nav/Nav';
 import LoginForm from './loginForm/LoginForm';
-import CreateAccountForm from './createAccountForm/CreateAccountForm';
 import { useState } from 'react';
 import OnboardingWizard from './onboarding/OnboardingWizard';
 

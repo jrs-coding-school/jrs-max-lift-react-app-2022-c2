@@ -55,15 +55,15 @@ export default function LoginForm() {
 
         <label>Password: </label>
         <input
-          type={isPasswordVisible ? 'password' : 'text'}
+          type={!isPasswordVisible ? 'password' : 'text'}
           name='password'
           value={user.password}
           onChange={handleEntryFormChange}
         />
 
         {isPasswordVisible
-          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
-          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
+          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
+          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
         }
 
         <button type='submit'

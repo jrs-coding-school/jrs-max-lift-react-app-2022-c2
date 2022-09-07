@@ -26,11 +26,6 @@ function App() {
     unsetUser();
   }
 
-  // useEffect(() => {
-  //   // storing input name
-  //   localStorage.setItem("user", JSON.stringify(user));
-  // }, [user]);
-
   return (
     <UserContext.Provider value={{ activeUser, login, logout }}>
       <div className="App">

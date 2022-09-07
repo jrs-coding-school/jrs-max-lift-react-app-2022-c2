@@ -13,7 +13,7 @@ export default function HomePage() {
     const [oneRepMax, setOneRepMax] = useState(0)
 
     function handleCalcClick(e) {
-        setOneRepMax(Math.floor(workout.weight * (1 + workout.reps / 30)));
+        setOneRepMax(Math.floor(workout.weight * Math.pow(workout.reps, 0.1)));
     }
 
     return (
