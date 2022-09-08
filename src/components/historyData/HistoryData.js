@@ -6,9 +6,10 @@ import './HistoryData.css'
 
 
 
-export default function HistoryData() {
+export default function HistoryData({ workout }) {
 
   const [isModalOpen, toggleIsModalOpen] = useBoolean(false)
+
 
   function handleSubmit() {
     // do something and then
@@ -50,6 +51,9 @@ export default function HistoryData() {
 
         </Modal>
       )}
+
+
+
       <button onClick={toggleIsModalOpen}>Edit</button>
 
     </div >

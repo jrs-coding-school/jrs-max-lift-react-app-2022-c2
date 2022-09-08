@@ -27,7 +27,6 @@ export default function OnboardingWizard() {
     const [currentStep, setCurrentStep] = useState(0);
 
     const steps = [
-        // <CreateAccountForm user={user} setUser={setUser} />,
         <UsernamePasswordStep nextStep={nextStep} output={setUserNamePass} />,
         <HeightStep nextStep={nextStep} prevStep={prevStep} output={setHeight} />,
         <AgeSexStep nextStep={nextStep} prevStep={prevStep} output={setSexAge} />,
@@ -151,32 +150,13 @@ function HeightStep({ nextStep, output, prevStep }) {
 
 
     // This is an array filled with objects for the <select/> tag with the heights.
-    // it conatains the format to be displayed and also the value in inches
+    // it conatains the format to be displayed and also the value in inches ex. [... {value: 68, label: 5'8"} ...]
     let heights = [];
     for (let i = 8; i > 2; i--) {
         for (let j = 11; j >= 0; j--) {
             heights.push({ value: ((i * 12) + j), label: `${i}'${j}"` })
         }
     }
-
-    // const heights = [
-    //     {
-    //         value: 70,
-    //         label: `5'10"`
-    //     },
-    //     {
-    //         value: 69,
-    //         label: `5'9"`
-    //     },
-    //     {
-    //         value: 68,
-    //         label: `5'8"`
-    //     },
-    //     {
-    //         value: 67,
-    //         label: `5'7"`
-    //     },
-    // ]
 
     const [heightInInches, setHeightInInches] = useState(68)
 

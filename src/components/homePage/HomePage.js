@@ -12,7 +12,7 @@ export default function HomePage() {
         reps: 0,
     })
 
-    var oneRepMax = Math.floor(workout.weight * (1 + workout.reps / 30))
+    var oneRepMax = Math.floor(workout.weight * Math.pow(workout.reps, 0.1))
 
     return (
         <div>
