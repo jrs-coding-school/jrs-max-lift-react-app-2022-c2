@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useBoolean } from '../../hooks/useBoolean'
 import http from '../../services/http.service'
-import EditWorkoutModal from '../editWorkoutModal/EditWorkoutModal'
+
 import HistoryCard from '../historyCard/HistoryCard'
 import Modal from '../Modal/Modal'
 import './HistoryData.css'
