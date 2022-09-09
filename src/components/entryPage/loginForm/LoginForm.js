@@ -4,11 +4,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { UserContext } from '../../../App';
 import './LoginForm.css'
+import http from '../../../services/http.service'
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
 
   const { login } = useContext(UserContext)
-  const [isPasswordVisible, setisPasswordVisible] = useState(false)
+  const [isPasswordVisible, setisPasswordVisible] = useState(false);
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     username: '',
@@ -26,12 +29,13 @@ export default function LoginForm() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    // http.login(user)
-    //   .then(response => {
-    //     let user = response.data;
-    //     login(user)
-    //   })
-    //   .catch(() => { })
+    http.login(user)
+      .then(response => {
+        let user = response.data;
+        login(user);
+        navigate("/")
+      })
+      .catch(() => { })
 
   }
 

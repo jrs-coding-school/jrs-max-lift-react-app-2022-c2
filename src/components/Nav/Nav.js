@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faDumbbell, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { UserContext } from '../../App'
 
 export default function Nav() {
+
+  const { activeUser } = useContext(UserContext)
 
   return (
     <nav>
@@ -27,11 +30,12 @@ export default function Nav() {
       </div>
 
       <div className="right">
-        <Link className='link' to="/login">
+        {!activeUser && <Link className='link' to="/login">
           <button className="login">
             Log in
           </button>
-        </Link>
+        </Link>}
+        {activeUser && <div>{activeUser.username}</div>}
       </div>
     </nav>
 

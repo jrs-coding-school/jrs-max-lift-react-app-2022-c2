@@ -2,17 +2,18 @@
 import axios from 'axios';
 import { useEffect, useState } from "react"
 
-function useFetch(initialUrl) {
+function useFetch(httpGetFunction, initialPayload, initialState) {
 
-    const [value, setValue] = useState({});
+    const [value, setValue] = useState(initialState);
 
     useEffect(() => {
-        reload(initialUrl);
+        reload(initialPayload);
     }, []);
 
-    function reload(url) {
-        axios.get(url)
+    function reload(payload) {
+        httpGetFunction(payload)
             .then(response => {
+                console.log(response.data)
                 setValue(response.data);
             })
             .catch(err => {
