@@ -75,13 +75,14 @@ export default function HistoryData({ workout, typeOfHistory }) {
               <input type="text" placeholder='edit reps' />
             </label>
           </div>
-
-          <button onClick={toggleIsModalOpen}>
-            Close
-          </button>
-          <button onClick={handleSubmit}>
-            Save Changes
-          </button>
+          <div>
+            <button className='button-secondary' onClick={toggleIsModalOpen}>
+              Close
+            </button>
+            <button className='button-secondary' onClick={handleSubmit}>
+              Save Changes
+            </button>
+          </div>
 
         </Modal>
       )}
