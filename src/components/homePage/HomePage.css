@@ -8,7 +8,7 @@ h3 {
 
 .calculate {
     color: var(--darkest);
-    border: solid #595E6E;
-    background-color: #A6ABBD;
+    /* border: solid #595E6E; */
+    background-color: #a6abbd37;
     padding: 0.5rem;
 }

@@ -8,8 +8,8 @@ export default function HomePage() {
         // this needs to be the table `excersises` from sql. also need more parameters
         id: '',
         name: '',
-        weight: 150,
-        reps: 5,
+        weight: 0,
+        reps: 0,
     })
 
     var oneRepMax = Math.floor(workout.weight * Math.pow(workout.reps, 0.1))
@@ -21,7 +21,7 @@ export default function HomePage() {
 
             <LiftForm workout={workout} setWorkout={setWorkout} />
 
-            <h3>{workout.name} one rep max: {oneRepMax} lbs</h3>
+            <h3 className='calculate' >{workout.name} 1RM: {oneRepMax} lbs</h3>
 
         </div>
     )
