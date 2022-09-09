@@ -6,10 +6,10 @@ import './HomePage.css'
 export default function HomePage() {
     const [workout, setWorkout] = useState({
         // this needs to be the table `excersises` from sql. also need more parameters
-        id: "",
+        id: '',
         name: '',
-        weight: 0,
-        reps: 0,
+        weight: 150,
+        reps: 5,
     })
 
     var oneRepMax = Math.floor(workout.weight * Math.pow(workout.reps, 0.1))

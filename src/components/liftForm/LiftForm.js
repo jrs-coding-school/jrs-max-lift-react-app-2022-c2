@@ -27,10 +27,14 @@ export default function LiftForm({ workout, setWorkout }) {
       <div className='label-input-group'>
         <label>exercise: </label>
         <select
-          value={JSON.stringify({
-            id: workout.id,
-            name: workout.name
-          })}
+          value={
+            workout.id
+              ? JSON.stringify({
+                id: workout.id,
+                name: workout.name
+              })
+              : ""
+          }
           onChange={(e) => {
             let { value } = e.target
             value = JSON.parse(value);
