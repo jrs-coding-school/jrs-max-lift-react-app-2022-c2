@@ -10,20 +10,26 @@
     font-size: 18pt;
     user-select: none;
 
-    /* not sure if we want background color behind input form?? */
-    /* background-color: #A6ABBD;
-    border-radius: 8px; */
-
-
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
 
-/* body {
-    display: flex;
-    justify-content: center;
-    margin-top: 5%;
-    align-items: center;
-} */
+div.login-form {
+    background-color: #7f818a;
+
+    box-shadow: 0 8px 32px 0 #2c1b087f;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+
+    width: fit-content;
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+}
+
+.inputs-container {
+    /* border: solid pink; */
+}

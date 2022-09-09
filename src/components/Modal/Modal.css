@@ -27,7 +27,6 @@
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(3.5px);
     border-radius: 10px;
-    border: 1px solid #8e8e8e;
     padding: 1.5rem;
 }
 
