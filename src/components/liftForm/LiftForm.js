@@ -26,7 +26,7 @@ export default function LiftForm({ workout, setWorkout }) {
       {/* make sure that {handleInputChange} is applied to below correctly */}
       <div className='label-input-group'>
         <label>exercise: </label>
-        <select
+        <select className='input-group'
           value={
             workout.id
               ? JSON.stringify({
@@ -63,7 +63,7 @@ export default function LiftForm({ workout, setWorkout }) {
 
       <div className='label-input-group'>
         <label>weight: </label>
-        <input
+        <input className='input-group'
           type='number'
           name='weight'
           value={workout.weight}
@@ -73,7 +73,7 @@ export default function LiftForm({ workout, setWorkout }) {
 
       <div className='label-input-group'>
         <label>reps: </label>
-        <input
+        <input className='input-group'
           type='number'
           name='reps'
           value={workout.reps}

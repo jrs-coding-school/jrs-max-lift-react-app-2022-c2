@@ -33,3 +33,14 @@ div.login-form {
 .inputs-container {
     /* border: solid pink; */
 }
+
+.text-box {
+    padding: 10px;
+    width: 275px;
+}
+
+h4 {
+    color: white;
+    font-size: 22pt;
+    display: flex;
+}

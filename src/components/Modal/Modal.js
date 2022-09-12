@@ -11,7 +11,7 @@ export default function Modal({ title, children, closeModal }) {
             console.log("background was clicked")
             closeModal && closeModal();
         } else {
-            console.log("not exactyle the background")
+            console.log("not exactly the background")
         }
     }
 
