@@ -47,12 +47,12 @@ export default function LoginForm() {
   return (
     <div className='login-form'>
       <form onSubmit={handleFormSubmit}>
-        <h4>Log in</h4>
+        <h4>Sign In</h4>
 
         <div className='inputs-container'>
           <div className='label-input-group'>
             <label>Username: </label>
-            <input
+            <input className='text-box'
               type='text'
               name='username'
               value={user.username}
@@ -63,7 +63,7 @@ export default function LoginForm() {
 
           <div className='label-input-group'>
             <label>Password: </label>
-            <input
+            <input className='text-box'
               type={!isPasswordVisible ? 'password' : 'text'}
               name='password'
               value={user.password}
@@ -79,7 +79,7 @@ export default function LoginForm() {
         }
 
         <button type='submit'
-          className='primary'>Log in</button>
+          className='primary'>Sign In</button>
       </form>
 
     </div>

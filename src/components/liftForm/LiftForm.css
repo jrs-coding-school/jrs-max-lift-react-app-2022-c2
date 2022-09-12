@@ -11,3 +11,12 @@ div.lift-form {
     width: fit-content;
     margin: auto;
 }
+
+.input-group {
+    padding: 8px;
+    width: 275px;
+}
+
+.label-input-group {
+    padding: 10px;
+}

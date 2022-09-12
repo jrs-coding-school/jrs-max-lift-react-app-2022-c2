@@ -17,6 +17,7 @@ nav {
     padding: 7px;
 
     user-select: none;
+    height: 40px;
 }
 
 nav .left {
