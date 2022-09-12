@@ -4,11 +4,13 @@ import './ProgressCard.css'
 export default function ProgressCard({ allPrs, index }) {
 
   return (
-    <div>
-      <div className='card'>
-        <div>{JSON.stringify(allPrs[index].name)}</div>
-        <div>{JSON.stringify(allPrs[index].date)}</div>
-        <div>{JSON.stringify(allPrs[index].max_weight)} lb</div>
+    <div className='progress-card-root'>
+      <div className='progress-card'>
+        <div className='name-date-wrapper'>
+          <div className='name'>{JSON.stringify(allPrs[index].name)}</div>
+          <div className='date'>{JSON.stringify(allPrs[index].date)}</div>
+        </div>
+        <div className='max-weight'>{JSON.stringify(allPrs[index].max_weight)} lb</div>
       </div>
     </div>
   )

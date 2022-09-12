@@ -15,6 +15,7 @@ export default function ProgressPage() {
 
   return (
     <div>
+      <h2>Current Personal Records</h2>
       {allPrs.map((Pr, i) => <ProgressCard allPrs={allPrs} key={Pr?.id} index={i} />)}
     </div>
   )
