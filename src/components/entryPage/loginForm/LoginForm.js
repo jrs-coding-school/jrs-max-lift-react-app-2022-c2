@@ -79,13 +79,7 @@ export default function LoginForm() {
         }
 
         <button type='submit'
-<<<<<<< HEAD
-          className='primary'>
-          Log in
-        </button>
-=======
-          className='primary'>Sign In</button>
->>>>>>> acbe3a9f02cc8916e8d58c6f8705696d6234d6ea
+          className='primary'>Log in</button>
       </form>
 
     </div>
