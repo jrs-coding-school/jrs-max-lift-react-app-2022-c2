@@ -14,14 +14,14 @@ export default function HistoryPage() {
 
   const [typeOfHistory, setTypeOfHistory] = useState('full')
 
-  const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser.id, []);
+  const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser?.id, []);
 
   return (
     <div>
-      <div onClick={() => { setTypeOfHistory('full') }}>getUsersFullHistory</div>
+      {/* <div onClick={() => { setTypeOfHistory('full') }}>getUsersFullHistory</div>
       <div onClick={() => { setTypeOfHistory('prs') }}>getAllPrs</div>
       <div onClick={() => { setTypeOfHistory('prExercise') }}>getPrForOneExercise</div>
-      <div onClick={() => { setTypeOfHistory('exercise') }}>getExerciseHistory</div>
+      <div onClick={() => { setTypeOfHistory('exercise') }}>getExerciseHistory</div> */}
 
       {/* <HistoryData workout={workout} typeOfHistory={typeOfHistory} /> */}
       {fullHistory && <LineChart datasetValues={fullHistory} />}

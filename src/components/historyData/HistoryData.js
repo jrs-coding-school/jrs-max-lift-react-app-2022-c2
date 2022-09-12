@@ -33,25 +33,25 @@ export default function HistoryData({ workout, typeOfHistory }) {
       http.getUsersFullHistory(userId)
         .then((response) => {
           setUserHistory(response.data)
-          console.log(userHistory)
+          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'prs') {
       http.getAllPrs(userId)
         .then((response) => {
           setUserHistory(response.data)
-          console.log(userHistory)
+          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'prExercise') {
       http.getPrForOneExercise(userId, exerciseId)
         .then((response) => {
           setUserHistory(response.data)
-          console.log(userHistory)
+          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'exercise') {
       http.getExerciseHistory(userId, exerciseId)
         .then((response) => {
           setUserHistory(response.data)
-          console.log(userHistory)
+          // console.log(userHistory)
         })
     }
   }

@@ -33,6 +33,7 @@ nav .right {
 
     display: flex;
     justify-content: center;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -50,6 +51,10 @@ nav .link {
     flex-wrap: nowrap;
     align-items: center;
     gap: 0.25rem;
+}
+
+nav .username {
+    color: #EBECF0;
 }
 
 /* visited link */

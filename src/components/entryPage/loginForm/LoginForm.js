@@ -33,16 +33,16 @@ export default function LoginForm() {
       .then(response => {
         let user = response.data;
         login(user);
-        navigate("/")
+        navigate("/home")
       })
       .catch(() => { })
 
   }
 
-  // useEffect(() => {
-  //   // storing input name
-  //   localStorage.setItem("user", JSON.stringify(user));
-  // }, [user]);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   return (
     <div className='login-form'>
@@ -79,7 +79,9 @@ export default function LoginForm() {
         }
 
         <button type='submit'
-          className='primary'>Log in</button>
+          className='primary'>
+          Log in
+        </button>
       </form>
 
     </div>

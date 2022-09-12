@@ -1,13 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faDumbbell, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../App'
 
-export default function Nav() {
+export default function Nav({ logout }) {
 
   const { activeUser } = useContext(UserContext)
+
+  let userCheck = false
+
+  try {
+    if (activeUser.username !== undefined || activeUser.username !== '') {
+      userCheck = true;
+    }
+  } catch (error) {
+    if (activeUser) {
+      userCheck = true;
+    }
+  }
+
+  useEffect(() => {
+    console.log(activeUser?.username)
+
+  }, [activeUser])
+
 
   return (
     <nav>
@@ -30,12 +48,16 @@ export default function Nav() {
       </div>
 
       <div className="right">
-        {!activeUser && <Link className='link' to="/login">
-          <button className="login">
-            Log in
-          </button>
-        </Link>}
-        {activeUser && <div>{activeUser.username}</div>}
+        {!userCheck
+          ? <Link className='link' to="/login">
+            <button className="login">
+              Log in
+            </button>
+          </Link>
+          : <button onClick={logout} >logout</button>
+        }
+        {userCheck && <div className='username'>{activeUser?.username}
+        </div>}
       </div>
     </nav>
 

@@ -19,6 +19,7 @@ function App() {
   });
 
   function login(newUser) {
+    console.log('new user', newUser)
     setUser(newUser);
   }
 
@@ -30,7 +31,7 @@ function App() {
 
     <UserContext.Provider value={{ activeUser, login, logout }}>
       <div className="App">
-        <Nav />
+        <Nav logout={logout} />
 
         <Outlet />
       </div>
