@@ -33,13 +33,13 @@ export default function Nav({ logout }) {
         <Link className='link' to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
-        <Link className='link' to="/progress">
+        <Link className='link' to={userCheck ? '/progress' : '/login'}>
           <span>
             PRs
           </span>
           <FontAwesomeIcon icon={faDumbbell} />
         </Link>
-        <Link className='link' to="/history">
+        <Link className='link' to={userCheck ? '/history' : '/login'}>
           <span>
             History
           </span>

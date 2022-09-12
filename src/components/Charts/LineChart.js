@@ -10,19 +10,7 @@ Chart.register(...registerables);
 
 export default function LineChart({ datasetValues }) {
 
-  datasetValues = [
-    { "id": 7, "exercise_id": 1, "name": "Bench Press", "max_weight": 295, "date": "2022-06-05" },
-    { "id": 4, "exercise_id": 9, "name": "Back Squat", "max_weight": 320, "date": "2022-03-15" },
-    { "id": 3, "exercise_id": 9, "name": "Back Squat", "max_weight": 315, "date": "2021-09-09" },
-    { "id": 6, "exercise_id": 1, "name": "Bench Press", "max_weight": 285, "date": "2022-01-03" },
-    { "id": 2, "exercise_id": 9, "name": "Back Squat", "max_weight": 310, "date": "2021-02-14" },
-    { "id": 5, "exercise_id": 1, "name": "Bench Press", "max_weight": 265, "date": "2021-07-26" },
-    { "id": 10, "exercise_id": 14, "name": "Power Clean", "max_weight": 305, "date": "2020-10-07" },
-    { "id": 9, "exercise_id": 14, "name": "Power Clean", "max_weight": 285, "date": "2020-10-06" },
-    { "id": 1, "exercise_id": 9, "name": "Back Squat", "max_weight": 305, "date": "2020-10-05" },
-    { "id": 8, "exercise_id": 14, "name": "Power Clean", "max_weight": 265, "date": "2020-10-05" },
-
-  ];
+  // console.table(datasetValues)
 
   const lineData = generateLineData(datasetValues);
 
@@ -86,7 +74,7 @@ function generateLineData(values) {
     buckets.push(newBucket);
   }
 
-  console.log(buckets)
+  // console.log(buckets)
 
   // then turn that into chart js stuff below
 
@@ -125,10 +113,10 @@ function insertPrIntoBucket(pr, bucket, dates) {
     if (date === pr.date) {
       bucket[i] = pr;
       let endValue = bucket[dates.length - 1];
-      console.log(dates.length - 1, endValue)
+      // console.log(dates.length - 1, endValue)
       let currentMax = endValue.max_weight;
       endValue.max_weight = Math.max(currentMax || 0, pr.max_weight);
-      console.log(bucket)
+      // console.log(bucket)
       return;
     }
   }

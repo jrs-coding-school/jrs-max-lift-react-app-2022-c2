@@ -1,5 +1,5 @@
-import { createContext } from 'react';
-import { Outlet } from 'react-router-dom';
+import { createContext, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import { useLocalStorage } from './hooks/useLocalStorage';
@@ -7,6 +7,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 export const UserContext = createContext(null);
 
 function App() {
+  const navigate = useNavigate();
 
   const [activeUser, setUser, unsetUser] = useLocalStorage('activeUser', {
     // id: '',
@@ -26,6 +27,12 @@ function App() {
   function logout() {
     unsetUser();
   }
+
+  useEffect(() => {
+    navigate("/home")
+
+  }, [])
+
 
   return (
 

@@ -1,17 +1,15 @@
 import React from 'react'
 import './ProgressCard.css'
 
-export default function ProgressCard() {
-  return (
-    <div>ProgressCard
-      {/* 
-      display workout
-      weight 
-      reps
-      1rm
+export default function ProgressCard({ allPrs, index }) {
 
-      or we might only be putting literal one rep maximums. i dont know.
-      */}
+  return (
+    <div>
+      <div className='card'>
+        <div>{JSON.stringify(allPrs[index].name)}</div>
+        <div>{JSON.stringify(allPrs[index].date)}</div>
+        <div>{JSON.stringify(allPrs[index].max_weight)} lb</div>
+      </div>
     </div>
   )
 }
