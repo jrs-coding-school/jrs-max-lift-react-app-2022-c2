@@ -25,7 +25,7 @@ export default function LiftForm({ workout, setWorkout }) {
       {/* remove the exercise text box and add functionality to exercise drop down menu */}
       {/* make sure that {handleInputChange} is applied to below correctly */}
       <div className='label-input-group'>
-        <label>exercise: </label>
+        <label>Exercise: </label>
         <select className='input-group'
           value={
             workout.id
@@ -62,7 +62,7 @@ export default function LiftForm({ workout, setWorkout }) {
       </div>
 
       <div className='label-input-group'>
-        <label>weight: </label>
+        <label>Weight: </label>
         <input className='input-group'
           type='number'
           name='weight'
@@ -72,7 +72,7 @@ export default function LiftForm({ workout, setWorkout }) {
       </div>
 
       <div className='label-input-group'>
-        <label>reps: </label>
+        <label>Reps: </label>
         <input className='input-group'
           type='number'
           name='reps'

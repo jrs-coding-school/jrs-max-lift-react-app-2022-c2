@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import LiftForm from '../liftForm/LiftForm';
+import NewPrForm from '../newPrForm/NewPrForm';
 import './HomePage.css'
 
 export default function HomePage() {
@@ -24,6 +25,8 @@ export default function HomePage() {
             <h3 className='calculate' >{workout.name} 1RM: {oneRepMax} lbs</h3>
 
             <button className='save-button'>Save</button>
+
+
 
         </div>
 
