@@ -12,7 +12,7 @@ export default function Nav({ logout }) {
   let userCheck = false
 
   try {
-    if (activeUser.username !== undefined || activeUser.username !== '') {
+    if (activeUser.username !== undefined && activeUser.username !== '') {
       userCheck = true;
     }
   } catch (error) {
@@ -22,7 +22,7 @@ export default function Nav({ logout }) {
   }
 
   useEffect(() => {
-    console.log(activeUser?.username)
+    console.log(activeUser?.username, 'active user username')
 
   }, [activeUser])
 
