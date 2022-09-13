@@ -15,6 +15,16 @@ export default function LiftForm({ workout, setWorkout }) {
     console.log(value)
   }
 
+  const inputWeight = document.querySelector('input[name="weight"]');
+  function handleWeightInputClick(e) {
+    inputWeight.select();
+  }
+
+  const inputReps = document.querySelector('input[name="reps"]');
+  function handleRepsInputClick(e) {
+    inputReps.select();
+  }
+
   return (
     <div className='lift-form inputs-container'>
       {/* 
@@ -68,6 +78,7 @@ export default function LiftForm({ workout, setWorkout }) {
           name='weight'
           value={workout.weight}
           onChange={handleInputChange}
+          onClick={handleWeightInputClick}
         />
       </div>
 
@@ -78,6 +89,7 @@ export default function LiftForm({ workout, setWorkout }) {
           name='reps'
           value={workout.reps}
           onChange={handleInputChange}
+          onClick={handleRepsInputClick}
         />
       </div>
 
