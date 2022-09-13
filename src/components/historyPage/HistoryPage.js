@@ -8,15 +8,12 @@ import { UserContext } from '../../App'
 
 export default function HistoryPage() {
 
-  // this needs to be changed based off which user and exercise needs to be shown
   const { activeUser } = useContext(UserContext)
   const [selectExerciseId, setSelectExerciseId] = useState(null)
 
   const [typeOfHistory, setTypeOfHistory] = useState('exercise')
 
   const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser?.id, []);
-
-
 
   return (
     <div className='history-page-root'>

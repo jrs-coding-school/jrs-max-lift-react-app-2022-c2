@@ -3,7 +3,7 @@
     font-weight: bold;
     font-size: 10pt;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin: auto;
     width: fit-content;
 }
@@ -19,4 +19,8 @@
 
     background-color: #A6ABBD;
     border-radius: 5px;
+}
+
+.history-type-root .selected {
+    background-color: bisque;
 }

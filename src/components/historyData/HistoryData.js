@@ -23,8 +23,6 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
   useEffect(() => {
     changeHistoryType();
   }, [typeOfHistory])
-  console.log(userHistory, 'user history')
-  console.log(allPrs, 'allPrs')
 
   function handleSubmit() {
     // do something and then
@@ -90,13 +88,24 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
         </Modal>
       )}
 
+      {allPrs.map((Pr, index) => (
+        <HistoryExerciseSelect
+          setSelectExerciseId={setSelectExerciseId}
+          key={Pr?.id}
+          index={index}
+          allPrs={allPrs}
+        />
+      ))}
 
-
-      <br></br>
-
-      {allPrs.map((Pr, index) => <HistoryExerciseSelect setSelectExerciseId={setSelectExerciseId} key={Pr?.id} index={index} allPrs={allPrs} />)}
-
-      {userHistory && userHistory.map((w, index) => <HistoryCard toggleIsModalOpen={toggleIsModalOpen} key={w.id} index={index} userHistory={userHistory} />)}
+      {userHistory && (
+        userHistory.map((w, index) =>
+          <HistoryCard
+            toggleIsModalOpen={toggleIsModalOpen}
+            key={w.id}
+            index={index}
+            userHistory={userHistory}
+          />
+        ))}
 
 
     </div >
