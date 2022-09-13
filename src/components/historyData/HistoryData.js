@@ -5,7 +5,7 @@ import { useFetch } from '../../hooks/useFetch'
 import http from '../../services/http.service'
 
 import HistoryCard from '../historyCard/HistoryCard'
-import HistoryType from '../historyType/HistoryType'
+import HistoryExerciseSelect from '../historyType/HistoryExerciseSelect'
 import Modal from '../Modal/Modal'
 import './HistoryData.css'
 
@@ -23,7 +23,8 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
   useEffect(() => {
     changeHistoryType();
   }, [typeOfHistory])
-
+  console.log(userHistory, 'user history')
+  console.log(allPrs, 'allPrs')
 
   function handleSubmit() {
     // do something and then
@@ -73,8 +74,8 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
 
             <br></br>
 
-            <label>Reps:
-              <input type="text" placeholder='edit reps' />
+            <label>Date:
+              <input type="text" placeholder='yyyy-mm-dd' />
             </label>
           </div>
           <div>
@@ -93,9 +94,10 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
 
       <br></br>
 
-      {allPrs.map((Pr, index) => <HistoryType setSelectExerciseId={setSelectExerciseId} key={Pr?.id} index={index} allPrs={allPrs} />)}
+      {allPrs.map((Pr, index) => <HistoryExerciseSelect setSelectExerciseId={setSelectExerciseId} key={Pr?.id} index={index} allPrs={allPrs} />)}
 
-      <HistoryCard userHistory={userHistory} />
+      {userHistory && userHistory.map((w, index) => <HistoryCard toggleIsModalOpen={toggleIsModalOpen} key={w.id} index={index} userHistory={userHistory} />)}
+
 
     </div >
   )
