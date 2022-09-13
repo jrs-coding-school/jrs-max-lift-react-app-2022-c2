@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function OnboardingWizard() {
@@ -117,7 +117,7 @@ function UsernamePasswordStep({ nextStep, output }) {
 
     return (
         <div className='create-account' >
-            <h4 className='create-account-header' >Create Account</h4>
+            <h4 className='create-account-headers' >Create Account</h4>
             <form onSubmit={handleFormSubmit}>
                 <input className='text-field'
                     type='text'
@@ -144,7 +144,7 @@ function UsernamePasswordStep({ nextStep, output }) {
                     : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEye} /> </div>
                 }
 
-                <button type="submit">next</button>
+                <button className='primary' type="submit">next <FontAwesomeIcon icon={faChevronRight} /></button>
             </form>
         </div >
     )
@@ -178,23 +178,26 @@ function HeightStep({ nextStep, output, prevStep }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <h4>Height</h4>
+            <h4 className='create-account-headers'>Height</h4>
 
             {/* <label>Height: </label> */}
-            <select
-                name="height"
-                value={heightInInches}
-                onChange={onInputChange}
-                required
-            >
-                {heights.map(h => (
-                    <option value={h.value}>{h.label}</option>
-                ))}
-            </select>
+            <div className="height-form">
 
-            <button type='button' onClick={prevStep}>prev</button>
+                <select className='enter-height'
+                    name="height"
+                    value={heightInInches}
+                    onChange={onInputChange}
+                    required
+                >
+                    {heights.map(h => (
+                        <option value={h.value}>{h.label}</option>
+                    ))}
+                </select>
+            </div>
+
+            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
             <button type='submit' value='submit'>
-                next
+                next <FontAwesomeIcon icon={faChevronRight} />
             </button>
         </form>
     )
@@ -218,7 +221,7 @@ function AgeSexStep({ nextStep, output, prevStep }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <h4>Age and Sex
+            <h4 className='create-account-headers' >Age and Sex
             </h4>
 
             <label>Age</label>
@@ -247,8 +250,8 @@ function AgeSexStep({ nextStep, output, prevStep }) {
                 </div>
             </div>
 
-            <button type='button' onClick={prevStep}>prev</button>
-            <button type='submit'>next</button>
+            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+            <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
         </form>
     )
 }
@@ -285,8 +288,8 @@ function WeightStep({ nextStep, prevStep, output }) {
                 required
             />
 
-            <button type='button' onClick={prevStep}>prev</button>
-            <button type='submit'>next</button>
+            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+            <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
         </form>
     )
 }

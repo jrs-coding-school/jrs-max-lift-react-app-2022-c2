@@ -25,7 +25,7 @@
     background-color: aqua;
 }
 
-.create-account-header {
+.create-account-headers {
     display: grid;
     align-items: center;
     color: var(--darkest);
@@ -43,6 +43,11 @@ form {
 
 .text-field {
     height: 18pt;
+    padding: 10px;
+    width: 275px;
+}
+
+.enter-height {
     padding: 10px;
     width: 275px;
 }
