@@ -24,7 +24,7 @@ export default function HomePage() {
 
             <h3 className='calculate' >{workout.name} 1RM: {oneRepMax} lbs</h3>
 
-            <button className='save-button'>Save</button>
+
 
 
 
