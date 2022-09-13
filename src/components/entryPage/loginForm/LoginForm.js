@@ -6,6 +6,10 @@ import { UserContext } from '../../../App';
 import './LoginForm.css'
 import http from '../../../services/http.service'
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+
 
 export default function LoginForm() {
 
@@ -74,8 +78,8 @@ export default function LoginForm() {
         </div>
 
         {isPasswordVisible
-          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
-          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
+          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEyeSlash} /></div>
+          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEye} /> </div>
         }
 
         <button type='submit'

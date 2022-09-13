@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faDumbbell, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faDumbbell, faHouse, } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../App'
 
 export default function Nav({ logout }) {
@@ -51,7 +51,7 @@ export default function Nav({ logout }) {
         {!userCheck
           ? <Link className='link' to="/login">
             <button className="login">
-              Log in
+              Sign in
             </button>
           </Link>
           : <button className='login-button' onClick={logout} >Sign out</button>
