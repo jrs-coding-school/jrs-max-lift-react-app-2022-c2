@@ -20,3 +20,7 @@ div.lift-form {
 .label-input-group {
     padding: 10px;
 }
+
+select.input-group {
+    width: 295px;
+}

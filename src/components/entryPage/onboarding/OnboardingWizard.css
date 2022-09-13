@@ -24,3 +24,25 @@
 .wizard-root .option.active {
     background-color: aqua;
 }
+
+.create-account-header {
+    display: grid;
+    align-items: center;
+    color: var(--darkest);
+}
+
+.wizard-root {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+}
+
+.text-field {
+    height: 18pt;
+    padding: 10px;
+    width: 275px;
+}
