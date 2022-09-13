@@ -54,7 +54,7 @@ export default function Nav({ logout }) {
               Log in
             </button>
           </Link>
-          : <button onClick={logout} >logout</button>
+          : <button className='login-button' onClick={logout} >Sign out</button>
         }
         {userCheck && <div className='username'>{activeUser?.username}
         </div>}
