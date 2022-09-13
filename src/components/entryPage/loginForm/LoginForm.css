@@ -42,3 +42,9 @@ h4 {
     font-size: 22pt;
     display: flex;
 }
+
+button.primary {
+    position: relative;
+    bottom: 10px;
+    left: 230px;
+}

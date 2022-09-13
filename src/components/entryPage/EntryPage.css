@@ -1,3 +1,9 @@
 body {
     color: var(--darkest);
 }
+
+.create-account-link:hover {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
