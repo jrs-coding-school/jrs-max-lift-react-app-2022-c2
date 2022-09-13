@@ -51,6 +51,11 @@ export default function NewPrForm() {
 
     }
 
+    const input = document.querySelector('input');
+    function handleTextInputClick(e) {
+        input.select();
+    }
+
     return (
         <form onSubmit={handleFormSubmit}>
             <div className='label-input-group'>
@@ -84,6 +89,7 @@ export default function NewPrForm() {
                     name='max_weight'
                     value={formData.max_weight}
                     onChange={handleInputChange}
+                    onClick={handleTextInputClick}
                 />
             </div>
         </form>
