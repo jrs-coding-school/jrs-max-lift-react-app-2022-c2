@@ -1,7 +1,7 @@
 import React from 'react'
-import './HistoryType.css'
+import './HistoryExerciseSelect.css'
 
-export default function HistoryType({ allPrs, index, setSelectExerciseId }) {
+export default function HistoryExerciseSelect({ allPrs, index, setSelectExerciseId }) {
 
     function handleExerciseClick() {
         console.log(allPrs[index]?.exercise_id)

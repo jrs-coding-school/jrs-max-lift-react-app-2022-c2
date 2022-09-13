@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProgressCard.css'
 
-export default function ProgressCard({ allPrs, index, toggleIsModalOpen }) {
+export default function ProgressCard({ allPrs, index }) {
 
   return (
     <div className='progress-card-root'>
@@ -12,7 +12,6 @@ export default function ProgressCard({ allPrs, index, toggleIsModalOpen }) {
         </div>
         <div className='max-weight'>{JSON.stringify(allPrs[index].max_weight)}&nbsp;lb</div>
       </div>
-      <button onClick={toggleIsModalOpen}>Edit</button>
     </div>
   )
 }

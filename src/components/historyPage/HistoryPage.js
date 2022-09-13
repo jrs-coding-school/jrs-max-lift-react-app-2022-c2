@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import HistoryData from '../historyData/HistoryData'
 import './HistoryPage.css'
 import http from '../../services/http.service'
@@ -10,12 +10,13 @@ export default function HistoryPage() {
 
   // this needs to be changed based off which user and exercise needs to be shown
   const { activeUser } = useContext(UserContext)
-  const [selectExerciseId, setSelectExerciseId] = useState(1)
-  let exerciseId = 1;
+  const [selectExerciseId, setSelectExerciseId] = useState(null)
 
-  const [typeOfHistory, setTypeOfHistory] = useState('full')
+  const [typeOfHistory, setTypeOfHistory] = useState('exercise')
 
   const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser?.id, []);
+
+
 
   return (
     <div className='history-page-root'>

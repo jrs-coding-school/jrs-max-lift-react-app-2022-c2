@@ -12,15 +12,10 @@ export default function ProgressPage() {
 
   const { activeUser } = useContext(UserContext)
   const [isNewPrOpen, setIsNewPrOpen] = useState(false)
-  const [isModalOpen, toggleIsModalOpen] = useBoolean(false)
 
   const [allPrs, reloadAllPrs] = useFetch(http.getAllPrs, activeUser?.id, [])
   // const [allPrsForExercise, reloadAllPrsForExercise] = useFetch(http.getPrForOneExercise, activeUser?.id, [])
 
-  function handleSubmit() {
-    // do something and then
-    toggleIsModalOpen(); // close after 
-  }
 
   return (
     <div className='progress-page-root'>
@@ -36,35 +31,10 @@ export default function ProgressPage() {
       </button>
       {isNewPrOpen && <NewPrForm />}
       <h2>Current Personal Records</h2>
-      {allPrs.map((Pr, i) => <ProgressCard toggleIsModalOpen={toggleIsModalOpen} allPrs={allPrs} key={Pr?.id} index={i} />)}
+      {allPrs.map((Pr, i) => <ProgressCard allPrs={allPrs} key={Pr?.id} index={i} />)}
       {allPrs.length === 0 ? "You don't have any PRs, add new PR to begin" : ""}
 
-      {isModalOpen && (
-        <Modal title="Edit Lift History"
-          closeModal={toggleIsModalOpen} >
 
-          <div>
-            <label>Weight:
-              <input type="text" placeholder='edit weight' />
-            </label>
-
-            <br></br>
-
-            <label>Date:
-              <input type="text" placeholder='yyyy-mm-dd' />
-            </label>
-          </div>
-          <div>
-            <button type='button' className='button-secondary' onClick={toggleIsModalOpen}>
-              Close
-            </button>
-            <button type='submit' className='button-secondary' onClick={handleSubmit}>
-              Save Changes
-            </button>
-          </div>
-
-        </Modal>
-      )}
     </div>
   )
 }
