@@ -1,0 +1,22 @@
+.history-type-root {
+    color: #313131;
+    font-weight: bold;
+    font-size: 20pt;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: fit-content;
+}
+
+.history-type-root .history-type-card {
+    margin: .5rem auto;
+
+    width: fit-content;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    background-color: #A6ABBD;
+    border-radius: 5px;
+}

@@ -26,6 +26,7 @@ function App() {
 
   function logout() {
     unsetUser();
+    navigate("/home")
   }
 
   useEffect(() => {

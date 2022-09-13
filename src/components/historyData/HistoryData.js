@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../../App'
 import { useBoolean } from '../../hooks/useBoolean'
+import { useFetch } from '../../hooks/useFetch'
 import http from '../../services/http.service'
 
 import HistoryCard from '../historyCard/HistoryCard'
+import HistoryType from '../historyType/HistoryType'
 import Modal from '../Modal/Modal'
 import './HistoryData.css'
 
 
 
-export default function HistoryData({ workout, typeOfHistory }) {
+export default function HistoryData({ typeOfHistory, selectExerciseId, setSelectExerciseId }) {
 
+  const { activeUser } = useContext(UserContext)
   const [isModalOpen, toggleIsModalOpen] = useBoolean(false)
   const [userHistory, setUserHistory] = useState('')
+  const [allPrs, reloadAllPrs] = useFetch(http.getAllPrs, activeUser?.id, [])
 
-  let userId = 'a66a7494-29ff-11ed-bd1e-c93bcd52340c';
-  // needs to be based on  which user is logged in
-
-  let exerciseId = 1;
+  let userId = activeUser?.id;
 
   useEffect(() => {
     changeHistoryType();
@@ -42,13 +44,13 @@ export default function HistoryData({ workout, typeOfHistory }) {
           // console.log(userHistory)
         })
     } else if (typeOfHistory == 'prExercise') {
-      http.getPrForOneExercise(userId, exerciseId)
+      http.getPrForOneExercise(userId, selectExerciseId)
         .then((response) => {
           setUserHistory(response.data)
           // console.log(userHistory)
         })
     } else if (typeOfHistory == 'exercise') {
-      http.getExerciseHistory(userId, exerciseId)
+      http.getExerciseHistory(userId, selectExerciseId)
         .then((response) => {
           setUserHistory(response.data)
           // console.log(userHistory)
@@ -87,12 +89,11 @@ export default function HistoryData({ workout, typeOfHistory }) {
         </Modal>
       )}
 
-      {/* {userHistory?.map((e, i) => { <p>hello world</p> })} */}
 
-      <button onClick={toggleIsModalOpen}>Edit</button>
 
       <br></br>
 
+      {allPrs.map((Pr, index) => <HistoryType setSelectExerciseId={setSelectExerciseId} key={Pr?.id} index={index} allPrs={allPrs} />)}
 
       <HistoryCard userHistory={userHistory} />
 

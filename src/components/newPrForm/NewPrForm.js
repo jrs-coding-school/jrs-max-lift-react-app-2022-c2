@@ -8,12 +8,28 @@ export default function NewPrForm() {
     const { activeUser } = useContext(UserContext)
     // const login = useContext(VerifyUser);
 
+    let today = new (Date)
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
     // useState
     const [formData, setFormData] = useState({
         userId: activeUser.id,
         exerciseId: "0",
         max_weight: 0,
-        date: "2022-09-12"
+        date: formatDate(today)
     });
     console.log(formData)
 
@@ -86,6 +102,8 @@ export default function NewPrForm() {
                     onChange={handleInputChange}
                 />
             </div>
+
+            <button type='submit' className='primary'>Submit</button>
         </form>
     )
 }

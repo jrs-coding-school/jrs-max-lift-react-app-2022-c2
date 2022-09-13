@@ -5,3 +5,7 @@ main {
     /* display: flex;
     flex-direction: column; */
 }
+
+.history-page-root {
+    margin-top: 2.5rem;
+}
