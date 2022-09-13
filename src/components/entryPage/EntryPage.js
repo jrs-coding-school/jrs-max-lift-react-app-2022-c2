@@ -16,8 +16,8 @@ export default function EntryPage() {
     <div>
       {isLogin ? <LoginForm /> : <OnboardingWizard />}
       {isLogin
-        ? <div onClick={toggleLoginForm}>New here? Create account</div>
-        : <div onClick={toggleLoginForm}>Log into existing account</div>
+        ? <div className='link' onClick={toggleLoginForm}>New here? Create account</div>
+        : <div className='link' onClick={toggleLoginForm}>Sign into existing account</div>
       }
     </div>
   )

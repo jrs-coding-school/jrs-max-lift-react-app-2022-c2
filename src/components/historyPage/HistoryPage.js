@@ -21,7 +21,7 @@ export default function HistoryPage() {
     <div className='history-page-root'>
 
       {fullHistory && <LineChart datasetValues={fullHistory} />}
-      {fullHistory.length == 0 && <div>You dont have any previous history click here to get started</div>}
+      {fullHistory.length == 0 && <div>You dont have any previous history. Click here to get started.</div>}
 
       <div onClick={() => { setTypeOfHistory('prExercise') }}>getPrForOneExercise</div>
       <div onClick={() => { setTypeOfHistory('exercise') }}>getExerciseHistory</div>

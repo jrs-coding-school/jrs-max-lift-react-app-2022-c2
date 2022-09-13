@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function OnboardingWizard() {
 
@@ -113,10 +116,10 @@ function UsernamePasswordStep({ nextStep, output }) {
     }
 
     return (
-        <div>
-            <h4>Create Account</h4>
+        <div className='create-account' >
+            <h4 className='create-account-header' >Create Account</h4>
             <form onSubmit={handleFormSubmit}>
-                <input
+                <input className='text-field'
                     type='text'
                     placeholder="username"
                     name='username'
@@ -124,7 +127,8 @@ function UsernamePasswordStep({ nextStep, output }) {
                     onChange={handleUsernameChange}
                     required
                 />
-                <input
+                <br></br>
+                <input className='text-field'
                     type={isPasswordVisible
                         ? 'text'
                         : 'password'}
@@ -136,13 +140,13 @@ function UsernamePasswordStep({ nextStep, output }) {
                 />
 
                 {!isPasswordVisible
-                    ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>show</div>
-                    : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}>hide</div>
+                    ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEyeSlash} /> </div>
+                    : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEye} /> </div>
                 }
 
                 <button type="submit">next</button>
             </form>
-        </div>
+        </div >
     )
 }
 
