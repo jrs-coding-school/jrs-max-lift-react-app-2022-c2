@@ -1,9 +1,9 @@
-body {
-    color: var(--darkest);
-}
-
 .create-account-link:hover {
     text-decoration: underline;
     color: black;
     cursor: pointer;
+}
+
+.entry-page-root {
+    padding: 3rem 1rem;
 }

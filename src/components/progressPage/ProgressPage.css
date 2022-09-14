@@ -7,7 +7,7 @@ body {
 }
 
 .add-pr-button {
-    background-color: #00c6cf;
+    background-color: var(--aqua);
     color: var(--darkest);
 }
 

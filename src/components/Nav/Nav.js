@@ -47,12 +47,14 @@ export default function Nav({ logout }) {
 
       <div className="right">
         {!userCheck
-          ? <Link className='link' to="/login">
-            <button className="login">
-              Sign in
-            </button>
-          </Link>
-          : <button className='login-button' onClick={logout} >Sign out</button>
+          ? (
+            <Link className='link' to="/login">
+              <button className="login">
+                Sign in
+              </button>
+            </Link>
+          )
+          : <button className='login' onClick={logout} >Sign out</button>
         }
 
         {userCheck && <div className='username'>{activeUser?.username}

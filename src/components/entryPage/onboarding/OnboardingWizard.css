@@ -1,5 +1,5 @@
 .wizard-root {
-    padding: 2rem;
+    padding: 0 2rem;
 }
 
 .wizard-root .multi-option-group {
@@ -26,7 +26,7 @@
 }
 
 .wizard-root .option.active {
-    background-color: #00c6cf;
+    color: var(--aqua);
 }
 
 .create-account-headers {
@@ -72,9 +72,6 @@ input.age-input {
     margin-top: 16pt;
 }
 
-div.wizard-view {
-    margin-top: 20pt;
-}
 
 select.enter-height {
     height: 33pt;

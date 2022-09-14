@@ -15,12 +15,12 @@ export default function EntryPage() {
 
 
   return (
-    <div>
+    <div className='entry-page-root'>
       {isLogin ? <LoginForm /> : <OnboardingWizard />}
 
-      <div className='create-account-link' onClick={toggleLoginForm}>
+      <p className='create-account-link' onClick={toggleLoginForm}>
         {isLogin ? 'New here? Create account' : 'Sign into existing account'}
-      </div>
+      </p>
 
     </div>
   )
