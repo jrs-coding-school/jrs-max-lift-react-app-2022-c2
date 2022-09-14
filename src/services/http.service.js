@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-// const axios = require('axios').default;
+
 const DOMAIN = 'localhost:8080'
 const URL = `http://${DOMAIN}/api`;
-
 
 function getUsersFullHistory(user_id) {
     return axios.get(`${URL}/orms/user/${user_id}`)
@@ -33,6 +32,7 @@ function postNewPr({ userId, exerciseId, max_weight, date }) {
         date
     });
 }
+
 
 export default {
     getUsersFullHistory,

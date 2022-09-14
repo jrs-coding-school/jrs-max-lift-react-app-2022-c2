@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faDumbbell, faHouse, } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../App'
+
 
 export default function Nav({ logout }) {
 
@@ -21,11 +22,6 @@ export default function Nav({ logout }) {
     }
   }
 
-  useEffect(() => {
-    console.log(activeUser?.username, 'active user username')
-
-  }, [activeUser])
-
 
   return (
     <nav>
@@ -33,12 +29,14 @@ export default function Nav({ logout }) {
         <Link className='link' to='/home'>
           <FontAwesomeIcon icon={faHouse} />
         </Link>
+
         <Link className='link' to={userCheck ? '/progress' : '/login'}>
           <span>
             PRs
           </span>
           <FontAwesomeIcon icon={faDumbbell} />
         </Link>
+
         <Link className='link' to={userCheck ? '/history' : '/login'}>
           <span>
             History
@@ -56,10 +54,10 @@ export default function Nav({ logout }) {
           </Link>
           : <button className='login-button' onClick={logout} >Sign out</button>
         }
+
         {userCheck && <div className='username'>{activeUser?.username}
         </div>}
       </div>
     </nav>
-
   )
 }

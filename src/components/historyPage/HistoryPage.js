@@ -6,22 +6,23 @@ import { useFetch } from '../../hooks/useFetch'
 import LineChart from '../Charts/LineChart'
 import { UserContext } from '../../App'
 
+
 export default function HistoryPage() {
 
   const { activeUser } = useContext(UserContext)
   const [selectExerciseId, setSelectExerciseId] = useState(null)
-
   const [typeOfHistory, setTypeOfHistory] = useState('exercise')
-
   const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser?.id, []);
+
 
   return (
     <div className='history-page-root'>
-
       {fullHistory && <LineChart datasetValues={fullHistory} />}
+
       {fullHistory.length == 0 && <div>You dont have any previous history. Click here to get started.</div>}
 
       <div onClick={() => { setTypeOfHistory('prExercise') }}>getPrForOneExercise</div>
+
       <div onClick={() => { setTypeOfHistory('exercise') }}>getExerciseHistory</div>
 
       <HistoryData

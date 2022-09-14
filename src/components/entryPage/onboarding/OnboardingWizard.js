@@ -80,7 +80,6 @@ export default function OnboardingWizard() {
     }
 
     useEffect(() => {
-        console.log(user);
     }, [user])
     return (
         <div className='wizard-root'>

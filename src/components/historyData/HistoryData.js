@@ -3,12 +3,10 @@ import { UserContext } from '../../App'
 import { useBoolean } from '../../hooks/useBoolean'
 import { useFetch } from '../../hooks/useFetch'
 import http from '../../services/http.service'
-
 import HistoryCard from '../historyCard/HistoryCard'
 import HistoryExerciseSelect from '../historyType/HistoryExerciseSelect'
 import Modal from '../Modal/Modal'
 import './HistoryData.css'
-
 
 
 export default function HistoryData({ typeOfHistory, selectExerciseId, setSelectExerciseId }) {
@@ -25,34 +23,31 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
   }, [typeOfHistory])
 
   function handleSubmit() {
-    // do something and then
-    toggleIsModalOpen(); // close after 
+    toggleIsModalOpen();
   }
 
+  // TODO: fix the bug where the data doesn't load unless typeOfHistory is update
+  // Then delete this block of code
   function changeHistoryType() {
     if (typeOfHistory == 'full') {
       http.getUsersFullHistory(userId)
         .then((response) => {
           setUserHistory(response.data)
-          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'prs') {
       http.getAllPrs(userId)
         .then((response) => {
           setUserHistory(response.data)
-          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'prExercise') {
       http.getPrForOneExercise(userId, selectExerciseId)
         .then((response) => {
           setUserHistory(response.data)
-          // console.log(userHistory)
         })
     } else if (typeOfHistory == 'exercise') {
       http.getExerciseHistory(userId, selectExerciseId)
         .then((response) => {
           setUserHistory(response.data)
-          // console.log(userHistory)
         })
     }
   }
@@ -60,11 +55,9 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
 
   return (
     <div>
-
       {isModalOpen && (
         <Modal title="Edit Lift History"
           closeModal={toggleIsModalOpen} >
-
           <div>
             <label>Weight:
               <input type="text" placeholder='edit weight' />
@@ -76,15 +69,22 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
               <input type="text" placeholder='yyyy-mm-dd' />
             </label>
           </div>
+
           <div>
-            <button className='button-secondary' onClick={toggleIsModalOpen}>
+            <button
+              className='button-secondary'
+              onClick={toggleIsModalOpen}
+            >
               Close
             </button>
-            <button className='button-secondary' onClick={handleSubmit}>
+
+            <button
+              className='button-secondary'
+              onClick={handleSubmit}
+            >
               Save Changes
             </button>
           </div>
-
         </Modal>
       )}
 
@@ -106,8 +106,6 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
             userHistory={userHistory}
           />
         ))}
-
-
     </div >
   )
 }

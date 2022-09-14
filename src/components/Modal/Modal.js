@@ -1,12 +1,15 @@
 import React, { useRef } from 'react'
 import './Modal.css'
 
+
 export default function Modal({ title, children, closeModal }) {
 
     var backgroundRef = useRef();
 
     function handleBackgroundClicked(e) {
+
         console.log("modal clicked somewhere")
+
         if (e.target === backgroundRef.current) {
             console.log("background was clicked")
             closeModal && closeModal();
@@ -14,6 +17,7 @@ export default function Modal({ title, children, closeModal }) {
             console.log("not exactly the background")
         }
     }
+
 
     return (
         <div className='modal-root'

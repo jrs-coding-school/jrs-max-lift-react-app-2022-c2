@@ -2,8 +2,8 @@ import React from 'react'
 import './LiftForm.css'
 import EXERCISE_DATA from '../../assets/exerciseNames.json'
 
-export default function LiftForm({ workout, setWorkout }) {
 
+export default function LiftForm({ workout, setWorkout }) {
 
   function handleInputChange(e) {
 
@@ -12,7 +12,6 @@ export default function LiftForm({ workout, setWorkout }) {
       ...workout,
       [name]: value
     })
-    console.log(value)
   }
 
   const inputWeight = document.querySelector('input[name="weight"]');
@@ -25,12 +24,12 @@ export default function LiftForm({ workout, setWorkout }) {
     inputReps.select();
   }
 
+
   return (
     <div className='lift-form inputs-container'>
       {/* 
       needs a 1RM <-- maybe this goes on the app
       */}
-
 
       {/* remove the exercise text box and add functionality to exercise drop down menu */}
       {/* make sure that {handleInputChange} is applied to below correctly */}
@@ -54,12 +53,14 @@ export default function LiftForm({ workout, setWorkout }) {
               name: value.name
             })
           }}>
+
           <option
             value=""
             disabled
           >
             select exercise
           </option>
+
           {EXERCISE_DATA.map(exercise => (
             <option
               key={exercise.id}
@@ -92,7 +93,6 @@ export default function LiftForm({ workout, setWorkout }) {
           onClick={handleRepsInputClick}
         />
       </div>
-
     </div>
   )
 }
