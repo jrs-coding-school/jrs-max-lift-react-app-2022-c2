@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import LiftForm from '../liftForm/LiftForm';
 import OneRepMaxCalculator from '../oneRepMaxCalculator/OneRepMaxCalculator';
 import './HomePage.css';
 
