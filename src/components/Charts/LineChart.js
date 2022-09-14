@@ -32,7 +32,7 @@ export default function LineChart({ datasetValues }) {
 
 /**
  * 
- * @param {[{"id":number,"exercise_id":number,"name":string,"max_weight":number,"date":string}]} values 
+ * @param {[{"id":number,"exercise_id":number,"name":string,"maxWeight":number,"date":string}]} values 
  * @returns 
  */
 function generateLineData(values) {
@@ -79,7 +79,7 @@ function generateLineData(values) {
       backgroundColor: lineColors[i],
       borderColor: lineColors[i],
       borderWidth: 2, spanGaps: true,
-      data: bucket.map(d => d.max_weight)
+      data: bucket.map(d => d.maxWeight)
     }
   })
 
@@ -94,9 +94,9 @@ function generateLineData(values) {
 
 /**
  * Inserts a pr into the bucket in the correct index according to its date property
- * @param {{"id":number,"exercise_id":number,"name":string,"max_weight":number,"date":string}} pr 
- * @param {[{"id":number,"exercise_id":number,"name":string,"max_weight":number,"date":string}]} buckets 
- * @param {[string]} dates 
+ * @param {{"id":number,"exercise_id":number,"name":string,"maxWeight":number,"date":string}} pr 
+ * @param {{"id":number,"exercise_id":number,"name":string,"maxWeight":number,"date":string}[]} buckets 
+ * @param {string[]} dates 
  * @returns 
  */
 function insertPrIntoBucket(pr, bucket, dates) {
@@ -108,8 +108,8 @@ function insertPrIntoBucket(pr, bucket, dates) {
     if (date === pr.date) {
       bucket[i] = pr;
       let endValue = bucket[dates.length - 1];
-      let currentMax = endValue.max_weight;
-      endValue.max_weight = Math.max(currentMax || 0, pr.max_weight);
+      let currentMax = endValue.maxWeight;
+      endValue.maxWeight = Math.max(currentMax || 0, pr.maxWeight);
       return;
     }
   }

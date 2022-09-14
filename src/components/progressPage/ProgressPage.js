@@ -31,7 +31,7 @@ export default function ProgressPage() {
 
       <h2>Current Personal Records</h2>
 
-      {allPrs.map((Pr, i) => <ProgressCard allPrs={allPrs} key={Pr?.id} index={i} />)}
+      {allPrs.map((pr, i) => <ProgressCard key={pr?.id} {...pr} />)}
 
       {allPrs.length === 0 ? "You don't have any PRs, add new PR to begin" : ""}
     </div>

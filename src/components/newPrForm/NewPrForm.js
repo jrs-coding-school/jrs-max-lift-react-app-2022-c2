@@ -7,10 +7,11 @@ import http from '../../services/http.service'
 export default function NewPrForm() {
 
     const { activeUser } = useContext(UserContext)
-    // const login = useContext(VerifyUser);
 
-    let today = new (Date)
+    let today = new Date();
 
+    // This function takes a date object and converts it to a string in the format 'yyyy-mm-dd'
+    // with leading zeros when needed
     function formatDate(date) {
 
         var d = new Date(date),
@@ -29,17 +30,18 @@ export default function NewPrForm() {
     }
 
     const [formData, setFormData] = useState({
-        userId: activeUser.id,
         exerciseId: "0",
-        max_weight: 0,
-        date: formatDate(today)
+        maxWeight: 0,
     });
+
+    let userId = activeUser.id
+    let date = formatDate(today)
 
     function handleFormSubmit(e) {
 
         e.preventDefault();
 
-        http.postNewPr(formData)
+        http.postNewPr(userId, formData.exerciseId, formData.maxWeight, date)
             .then((response) => {
                 setFormData(response.data);
             })
@@ -52,7 +54,7 @@ export default function NewPrForm() {
 
         const { name, value } = e.target;
 
-        if (name == 'max_weight') {
+        if (name == 'maxWeight') {
             setFormData({
                 ...formData,
                 [name]: Number(value)
@@ -63,12 +65,6 @@ export default function NewPrForm() {
                 [name]: value
             })
         }
-    }
-
-    const input = document.querySelector('input');
-
-    function handleTextInputClick(e) {
-        input.select();
     }
 
 
@@ -105,10 +101,9 @@ export default function NewPrForm() {
                 <label>Weight: </label>
                 <input className='input-group'
                     type='number'
-                    name='max_weight'
-                    value={formData.max_weight}
+                    name='maxWeight'
+                    value={formData.maxWeight}
                     onChange={handleInputChange}
-                    onClick={handleTextInputClick}
                 />
             </div>
 
