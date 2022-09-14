@@ -45,7 +45,7 @@ export default function LoginForm() {
   return (
     <div className='login-form'>
       <form onSubmit={handleFormSubmit}>
-        <h4>Sign In</h4>
+        <h4>Log In</h4>
 
         <div className='inputs-container'>
           <div className='label-input-group'>
