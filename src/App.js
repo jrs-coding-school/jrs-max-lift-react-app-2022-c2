@@ -4,23 +4,23 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
+
 export const UserContext = createContext(null);
 
 function App() {
+
   const navigate = useNavigate();
 
   const [activeUser, setUser, unsetUser] = useLocalStorage('activeUser', {
-    // id: '',
     username: '',
     password: '',
-    height: 0, // inches
-    weight: 0, // weight
-    age: 0, // years
-    sex: '' // 'm' / 'f'
+    height: 0,
+    weight: 0,
+    age: 0,
+    sex: ''
   });
 
   function login(newUser) {
-    console.log('new user', newUser)
     setUser(newUser);
   }
 
@@ -31,12 +31,10 @@ function App() {
 
   useEffect(() => {
     navigate("/home")
-
   }, [])
 
 
   return (
-
     <UserContext.Provider value={{ activeUser, login, logout }}>
       <div className="App">
         <Nav logout={logout} />
@@ -46,5 +44,6 @@ function App() {
     </UserContext.Provider>
   );
 }
+
 
 export default App;

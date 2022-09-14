@@ -3,6 +3,7 @@ import EXERCISE_DATA from '../../assets/exerciseNames.json'
 import { UserContext } from '../../App'
 import http from '../../services/http.service'
 
+
 export default function NewPrForm() {
 
     const { activeUser } = useContext(UserContext)
@@ -11,35 +12,35 @@ export default function NewPrForm() {
     let today = new (Date)
 
     function formatDate(date) {
+
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
 
-        if (month.length < 2)
+        if (month.length < 2) {
             month = '0' + month;
-        if (day.length < 2)
+        }
+        if (day.length < 2) {
             day = '0' + day;
+        }
 
         return [year, month, day].join('-');
     }
 
-    // useState
     const [formData, setFormData] = useState({
         userId: activeUser.id,
         exerciseId: "0",
         max_weight: 0,
         date: formatDate(today)
     });
-    console.log(formData)
 
     function handleFormSubmit(e) {
+
         e.preventDefault();
 
-        // post a PR ????
         http.postNewPr(formData)
             .then((response) => {
-                console.log(response.data);
                 setFormData(response.data);
             })
             .catch(error => {
@@ -47,34 +48,34 @@ export default function NewPrForm() {
             })
     }
 
-
     function handleInputChange(e) {
+
         const { name, value } = e.target;
 
         if (name == 'max_weight') {
-            console.log('yes', typeof value)
             setFormData({
                 ...formData,
                 [name]: Number(value)
             })
         } else {
-            console.log('no', name)
             setFormData({
                 ...formData,
                 [name]: value
             })
         }
-
     }
 
     const input = document.querySelector('input');
+
     function handleTextInputClick(e) {
         input.select();
     }
 
+
     return (
         <form onSubmit={handleFormSubmit}>
             <div className='label-input-group'>
+
                 <label>Exercise: </label>
                 <select className='input-group'
                     value={EXERCISE_DATA.id}
@@ -87,6 +88,7 @@ export default function NewPrForm() {
                     >
                         select exercise
                     </option>
+
                     {EXERCISE_DATA.map(exercise => (
                         <option
                             key={exercise.id}
@@ -99,6 +101,7 @@ export default function NewPrForm() {
             </div>
 
             <div className='label-input-group'>
+
                 <label>Weight: </label>
                 <input className='input-group'
                     type='number'

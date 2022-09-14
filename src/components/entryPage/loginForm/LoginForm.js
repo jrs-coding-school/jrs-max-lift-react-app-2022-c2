@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
-
 export default function LoginForm() {
 
   const { login } = useContext(UserContext)
@@ -31,6 +30,7 @@ export default function LoginForm() {
   }
 
   function handleFormSubmit(e) {
+
     e.preventDefault();
 
     http.login(user)
@@ -40,13 +40,12 @@ export default function LoginForm() {
         navigate("/home")
       })
       .catch(() => { })
-
   }
 
   useEffect(() => {
-    // storing input name
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
+
 
   return (
     <div className='login-form'>
@@ -85,7 +84,6 @@ export default function LoginForm() {
         <button type='submit'
           className='primary'>Log in</button>
       </form>
-
     </div>
   )
 }
