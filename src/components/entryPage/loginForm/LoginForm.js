@@ -65,7 +65,7 @@ export default function LoginForm() {
             />
           </div>
 
-          <div className='label-input-group'>
+          <div className='label-input-group password-input-container'>
             <label>Password: </label>
             <input className='text-box'
               type={!isPasswordVisible ? 'password' : 'text'}
@@ -74,16 +74,17 @@ export default function LoginForm() {
               onChange={handleEntryFormChange}
               placeholder="password"
             />
+            <div className='eye' onClick={() => setisPasswordVisible(!isPasswordVisible)}>
+              <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
+            </div>
           </div>
+          <button type='submit'
+            className='primary login'>
+            Log in
+          </button>
         </div>
 
-        {isPasswordVisible
-          ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEyeSlash} /></div>
-          : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEye} /> </div>
-        }
 
-        <button type='submit'
-          className='primary'>Log in</button>
       </form>
 
     </div>

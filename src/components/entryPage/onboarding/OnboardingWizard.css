@@ -1,3 +1,11 @@
+.wizard-root {
+    padding: 2rem;
+}
+
+.wizard-root .wizard-view {
+    border: solid black 1px;
+}
+
 .wizard-root .multi-option-group {
     display: flex;
     flex-direction: row;
@@ -18,11 +26,11 @@
 }
 
 .wizard-root .option:hover {
-    filter: brightness(1.2);
+    /* filter: brightness(1.2); */
 }
 
 .wizard-root .option.active {
-    background-color: aqua;
+    background-color: #00c6cf;
 }
 
 .create-account-headers {
@@ -50,4 +58,23 @@ form {
 .enter-height {
     padding: 10px;
     width: 275px;
+}
+
+/* not being referenced correctly */
+.age-form {
+
+    height: 30pt;
+    font-size: 14pt;
+    border: solid pink;
+}
+
+age-input {}
+
+
+
+.multi-option-group {
+    margin: auto;
+    margin-top: 16pt;
+    ;
+
 }

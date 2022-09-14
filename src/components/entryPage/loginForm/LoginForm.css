@@ -16,12 +16,12 @@
     align-items: center;
 }
 
-div.login-form {
+.login-form {
     background-color: #7f818a;
 
     box-shadow: 0 8px 32px 0 #2c1b087f;
     border-radius: 10px;
-    padding: 0.5rem 2rem;
+    padding: 1.25rem 2rem;
 
     width: fit-content;
     margin: auto;
@@ -30,21 +30,28 @@ div.login-form {
 
 }
 
-.inputs-container {}
-
 .text-box {
     padding: 10px;
     width: 275px;
 }
 
 h4 {
-    color: white;
+    margin: 0;
+    margin-bottom: 1rem;
     font-size: 22pt;
-    display: flex;
 }
 
-button.primary {
+button.login {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.password-input-container {
     position: relative;
-    bottom: 10px;
-    left: 230px;
+}
+
+.eye {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
 }

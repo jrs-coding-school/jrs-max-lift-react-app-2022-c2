@@ -116,35 +116,39 @@ function UsernamePasswordStep({ nextStep, output }) {
     }
 
     return (
-        <div className='create-account' >
-            <h4 className='create-account-headers' >Create Account</h4>
+        <div className='create-account login-form' >
             <form onSubmit={handleFormSubmit}>
-                <input className='text-field'
-                    type='text'
-                    placeholder="username"
-                    name='username'
-                    value={username}
-                    onChange={handleUsernameChange}
-                    required
-                />
-                <br></br>
-                <input className='text-field'
-                    type={isPasswordVisible
-                        ? 'text'
-                        : 'password'}
-                    placeholder="password"
-                    name='password'
-                    value={password}
-                    onChange={handlePasswordChange}
-                    required
-                />
+                <h4 className='create-account-headers' >Create Account</h4>
+                <div className='inputs-container'>
 
-                {!isPasswordVisible
-                    ? <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEyeSlash} /> </div>
-                    : <div onClick={() => setisPasswordVisible(!isPasswordVisible)}><FontAwesomeIcon icon={faEye} /> </div>
-                }
+                    <div className='label-input-group'>
+                        <label>Username: </label>
+                        <input className='text-box'
+                            type='text'
+                            name='username'
+                            value={username}
+                            onChange={handleUsernameChange}
+                            placeholder="username"
+                        />
+                    </div>
 
-                <button className='primary' type="submit">next <FontAwesomeIcon icon={faChevronRight} /></button>
+                    <div className='label-input-group password-input-container'>
+                        <label>Password:</label>
+                        <input className='text-box'
+                            type={!isPasswordVisible ? 'password' : 'text'}
+                            name='password'
+                            value={password}
+                            onChange={handlePasswordChange}
+                            placeholder="password"
+                        />
+                        <div className='eye' onClick={() => setisPasswordVisible(!isPasswordVisible)}>
+                            <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
+                        </div>
+                    </div>
+
+
+                    <button className='primary' type="submit">next <FontAwesomeIcon icon={faChevronRight} /></button>
+                </div>
             </form>
         </div >
     )
@@ -194,11 +198,13 @@ function HeightStep({ nextStep, output, prevStep }) {
                     ))}
                 </select>
             </div>
-
-            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
-            <button type='submit' value='submit'>
-                next <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+            <br></br>
+            <div>
+                <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+                <button type='submit' value='submit'>
+                    next <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+            </div>
         </form>
     )
 }
@@ -223,18 +229,19 @@ function AgeSexStep({ nextStep, output, prevStep }) {
         <form onSubmit={handleFormSubmit}>
             <h4 className='create-account-headers' >Age and Sex
             </h4>
-
-            <label>Age</label>
-            <input
-                type='number'
-                placeholder="25"
-                name='age'
-                value={age}
-                onChange={handleAgeChange}
-                min='0'
-                max='120'
-                required
-            />
+            <div className='age-form'>
+                <label>Age</label>
+                <input className="age-input"
+                    type='number'
+                    placeholder="25"
+                    name='age'
+                    value={age}
+                    onChange={handleAgeChange}
+                    min='0'
+                    max='120'
+                    required
+                />
+            </div>
 
 
             <div className='multi-option-group'>
@@ -249,9 +256,11 @@ function AgeSexStep({ nextStep, output, prevStep }) {
                     Female
                 </div>
             </div>
-
-            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
-            <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
+            <br></br>
+            <div>
+                <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+                <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
+            </div>
         </form>
     )
 }
@@ -274,19 +283,20 @@ function WeightStep({ nextStep, prevStep, output }) {
     }
     return (
         <form onSubmit={handleFormSubmit}>
-            <h4>Body Weight in lbs</h4>
-
-            <label>weight</label>
-            <input
-                type='number'
-                placeholder="lbs"
-                name='weight'
-                value={weight}
-                onChange={handleWeightChange}
-                min='0'
-                max='800'
-                required
-            />
+            <h4 className='create-account-headers' >Body Weight in lbs</h4>
+            <div className='weight-form' >
+                <label>weight</label>
+                <input
+                    type='number'
+                    placeholder="lbs"
+                    name='weight'
+                    value={weight}
+                    onChange={handleWeightChange}
+                    min='0'
+                    max='800'
+                    required
+                />
+            </div>
 
             <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
             <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
