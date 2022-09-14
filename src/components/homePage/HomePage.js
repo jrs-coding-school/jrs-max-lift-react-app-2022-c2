@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import LiftForm from '../liftForm/LiftForm';
+import OneRepMaxCalculator from '../oneRepMaxCalculator/OneRepMaxCalculator';
 import './HomePage.css';
 
 
@@ -18,11 +19,7 @@ export default function HomePage() {
 
     return (
         <div>
-            <h1>1 Rep Max Calculator</h1>
-
-            <LiftForm workout={workout} setWorkout={setWorkout} />
-
-            <h3 className='calculate' >{workout.name} 1RM: {oneRepMax} lbs</h3>
+            <OneRepMaxCalculator />
         </div>
     )
 }
