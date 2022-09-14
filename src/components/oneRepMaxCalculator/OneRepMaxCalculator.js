@@ -35,6 +35,7 @@ export default function OneRepMaxCalculator() {
 
     return (
         <div className='lift-form inputs-container'>
+            <h2>One Rep Max Calculator</h2>
             {/* 
         needs a 1RM <-- maybe this goes on the app
         */}

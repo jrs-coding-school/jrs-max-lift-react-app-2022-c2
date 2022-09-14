@@ -52,6 +52,17 @@ button.login {
 
 .eye {
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.7rem;
     right: 0.5rem;
+    font-size: 14px;
+
+}
+
+input {
+    width: 50%;
+    font-size: 14pt;
+}
+
+label {
+    font-size: 18px;
 }
