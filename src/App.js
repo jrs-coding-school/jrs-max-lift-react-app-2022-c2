@@ -22,7 +22,9 @@ function App() {
   }
 
   useEffect(() => {
-    // navigate("/home")
+    if (window.location.href == 'http://localhost:3000/') {
+      navigate("/home")
+    }
   }, [])
 
 

@@ -20,7 +20,6 @@ root.render(
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/login" element={<EntryPage />} />
-          <Route path="/new" element={<NewPrForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
