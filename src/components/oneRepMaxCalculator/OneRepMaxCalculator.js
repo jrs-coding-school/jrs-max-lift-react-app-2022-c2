@@ -26,12 +26,7 @@ export default function OneRepMaxCalculator() {
     return (
         <div className='lift-form inputs-container'>
             <h2>One Rep Max Calculator</h2>
-            {/* 
-        needs a 1RM <-- maybe this goes on the app
-        */}
 
-            {/* remove the exercise text box and add functionality to exercise drop down menu */}
-            {/* make sure that {handleInputChange} is applied to below correctly */}
             <div className='label-input-group'>
                 <label>Exercise: </label>
                 <select className='input-group'

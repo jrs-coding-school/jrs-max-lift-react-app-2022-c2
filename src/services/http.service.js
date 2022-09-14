@@ -28,13 +28,20 @@ function signup({ username, password, age, weight, height, sex }) {
     return axios.post(`${URL}/users`, { username, password, age, height, weight, sex })
 }
 
-function postNewPr(userId, exerciseId, max_weight, date) {
+function postNewPr(userId, exerciseId, maxWeight, date) {
 
     return axios.post(`${URL}/orms`, {
         userId,
         exerciseId,
-        max_weight,
+        maxWeight,
         date
+    });
+}
+
+function updateOrm(id, maxWeight) {
+    return axios.put(`${URL}/orms/`, {
+        id,
+        maxWeight
     });
 }
 
@@ -46,5 +53,6 @@ export default {
     getExerciseHistory,
     login,
     postNewPr,
+    updateOrm,
     signup
 };

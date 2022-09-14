@@ -10,6 +10,8 @@ export default function NewPrForm() {
 
     let today = new Date();
 
+    // This function takes a date object and converts it to a string in the format 'yyyy-mm-dd'
+    // with leading zeros when needed
     function formatDate(date) {
 
         var d = new Date(date),
@@ -29,7 +31,7 @@ export default function NewPrForm() {
 
     const [formData, setFormData] = useState({
         exerciseId: "0",
-        max_weight: 0,
+        maxWeight: 0,
     });
 
     let userId = activeUser.id
@@ -39,7 +41,7 @@ export default function NewPrForm() {
 
         e.preventDefault();
 
-        http.postNewPr(userId, formData.exerciseId, formData.max_weight, date)
+        http.postNewPr(userId, formData.exerciseId, formData.maxWeight, date)
             .then((response) => {
                 setFormData(response.data);
             })
@@ -52,7 +54,7 @@ export default function NewPrForm() {
 
         const { name, value } = e.target;
 
-        if (name == 'max_weight') {
+        if (name == 'maxWeight') {
             setFormData({
                 ...formData,
                 [name]: Number(value)
@@ -99,8 +101,8 @@ export default function NewPrForm() {
                 <label>Weight: </label>
                 <input className='input-group'
                     type='number'
-                    name='max_weight'
-                    value={formData.max_weight}
+                    name='maxWeight'
+                    value={formData.maxWeight}
                     onChange={handleInputChange}
                 />
             </div>
