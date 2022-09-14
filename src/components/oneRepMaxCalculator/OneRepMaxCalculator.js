@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './OneRepMaxCalculator.css'
 import EXERCISE_DATA from '../../assets/exerciseNames.json'
 
 export default function OneRepMaxCalculator() {
