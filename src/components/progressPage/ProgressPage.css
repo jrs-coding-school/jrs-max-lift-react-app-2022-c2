@@ -5,3 +5,13 @@ body {
 .progress-page-root {
     margin-top: 3rem;
 }
+
+.add-pr-button {
+    background-color: #00c6cf;
+    color: var(--darkest);
+}
+
+.add-pr-button:hover {
+    background-color: var(--darkest);
+    color: var(--lightest);
+}

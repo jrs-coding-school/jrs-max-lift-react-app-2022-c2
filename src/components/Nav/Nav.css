@@ -75,3 +75,7 @@ nav .right .link {
 nav .link:active {
     color: #EBECF0;
 }
+
+div.lift-form.inputs-container {
+    margin-top: 70pt;
+}

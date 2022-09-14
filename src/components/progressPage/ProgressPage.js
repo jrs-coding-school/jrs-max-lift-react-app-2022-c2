@@ -19,7 +19,7 @@ export default function ProgressPage() {
       <button
         type='button'
         onClick={() => { setIsNewPrOpen(!isNewPrOpen) }}
-        className='primary'
+        className='add-pr-button'
       >
         {isNewPrOpen
           ? "Close Form"

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faChevronRight, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 import http from '../../../services/http.service';
 import { useNavigate } from 'react-router-dom';
 
@@ -216,6 +216,7 @@ function HeightStep({ nextStep, output, prevStep }) {
                     ))}
                 </select>
             </div>
+            <br></br>
             <div>
                 <button type='button' onClick={prevStep}>
                     <FontAwesomeIcon icon={faChevronLeft} /> prev
@@ -246,10 +247,10 @@ function AgeSexStep({ nextStep, output, prevStep }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <h4 className='create-account-headers' >Age and Sex
+            <h4 className='create-account-headers' >Age & Sex
             </h4>
             <div className='age-form'>
-                <label>Age</label>
+                <label>Age: </label>
                 <input className="age-input"
                     type='number'
                     placeholder="25"
@@ -307,10 +308,10 @@ function WeightStep({ nextStep, prevStep, output }) {
     return (
         <form onSubmit={handleFormSubmit}>
             <h4 className='create-account-headers' >
-                Body Weight in lbs
+                Body Weight (lbs)
             </h4>
-            <div className='weight-form' >
-                <label>weight</label>
+            <div className='weight-input' >
+                <label>Weight: </label>
                 <input
                     type='number'
                     placeholder="lbs"
@@ -322,12 +323,14 @@ function WeightStep({ nextStep, prevStep, output }) {
                     required
                 />
             </div>
-
-            <button type='button' onClick={prevStep}>
-                <FontAwesomeIcon icon={faChevronLeft} /> prev</button>
-            <button type='submit'>
-                Finish
-            </button>
+            <br></br>
+            <div>
+                <button type='button' onClick={prevStep}>
+                    <FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+                <button type='submit'>
+                    finish <FontAwesomeIcon icon={faCheck} />
+                </button>
+            </div>
         </form>
     )
 }
