@@ -24,7 +24,12 @@ function login({ username, password }) {
     return axios.post(`${URL}/users/login`, { username, password });
 }
 
-function postNewPr({ userId, exerciseId, max_weight, date }) {
+function signup({ username, password, age, weight, height, sex }) {
+    return axios.post(`${URL}/users`, { username, password, age, height, weight, sex })
+}
+
+function postNewPr(userId, exerciseId, max_weight, date) {
+
     return axios.post(`${URL}/orms`, {
         userId,
         exerciseId,
@@ -40,5 +45,6 @@ export default {
     getPrForOneExercise,
     getExerciseHistory,
     login,
-    postNewPr
+    postNewPr,
+    signup
 };

@@ -4,21 +4,13 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
-
 export const UserContext = createContext(null);
 
 function App() {
 
   const navigate = useNavigate();
 
-  const [activeUser, setUser, unsetUser] = useLocalStorage('activeUser', {
-    username: '',
-    password: '',
-    height: 0,
-    weight: 0,
-    age: 0,
-    sex: ''
-  });
+  const [activeUser, setUser, unsetUser] = useLocalStorage('activeUser');
 
   function login(newUser) {
     setUser(newUser);
@@ -30,7 +22,7 @@ function App() {
   }
 
   useEffect(() => {
-    navigate("/home")
+    // navigate("/home")
   }, [])
 
 
@@ -40,6 +32,7 @@ function App() {
         <Nav logout={logout} />
 
         <Outlet />
+
       </div>
     </UserContext.Provider>
   );

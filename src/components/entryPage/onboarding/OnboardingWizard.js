@@ -6,26 +6,22 @@ import { useContext } from 'react';
 import { UserContext } from '../../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-
+import http from '../../../services/http.service';
+import { useNavigate } from 'react-router-dom';
 
 export default function OnboardingWizard() {
 
     const { login } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
-        // id: '',
         username: '',
         password: '',
         height: 0, // inches
-        weight: 0, // weight
+        weight: 0, // lbs
         age: 0, // years
         sex: '' // 'm' / 'f'
     })
-
-    useEffect(() => {
-        // storing input name
-        localStorage.setItem("user", JSON.stringify(user));
-    }, [user]);
 
     const [currentStep, setCurrentStep] = useState(0);
 
@@ -33,8 +29,17 @@ export default function OnboardingWizard() {
         <UsernamePasswordStep nextStep={nextStep} output={setUserNamePass} />,
         <HeightStep nextStep={nextStep} prevStep={prevStep} output={setHeight} />,
         <AgeSexStep nextStep={nextStep} prevStep={prevStep} output={setSexAge} />,
-        <WeightStep nextStep={nextStep} prevStep={prevStep} output={setWeight} />
+        <WeightStep prevStep={prevStep} output={(setWeight)} />
     ]
+
+    useEffect(() => {
+        console.log(user.weight)
+        if (user.weight) {
+            // last step was submitted
+            submitNewUser();
+        }
+    }, [user.weight])
+
 
     function nextStep() {
         setCurrentStep(currentStep + 1);
@@ -77,10 +82,17 @@ export default function OnboardingWizard() {
     function submitNewUser() {
         // clean up the user first
         // http.post -> create new user(user);
+        http.signup(user)
+            .then(res => {
+                let newUser = res.data
+                login && login(newUser)
+                navigate('/history')
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 
-    useEffect(() => {
-    }, [user])
     return (
         <div className='wizard-root'>
             <div className='wizard-view'>
@@ -110,14 +122,16 @@ function UsernamePasswordStep({ nextStep, output }) {
     }
 
     function handlePasswordChange(e) {
-        const { name, value } = e.target;
-        setPassword(value)
+        setPassword(e.target.value)
     }
 
     return (
         <div className='create-account login-form' >
             <form onSubmit={handleFormSubmit}>
-                <h4 className='create-account-headers' >Create Account</h4>
+                <h4 className='create-account-headers'>
+                    Create Account
+                </h4>
+
                 <div className='inputs-container'>
 
                     <div className='label-input-group'>
@@ -146,7 +160,10 @@ function UsernamePasswordStep({ nextStep, output }) {
                     </div>
 
 
-                    <button className='primary' type="submit">next <FontAwesomeIcon icon={faChevronRight} /></button>
+                    <button className='primary' type="submit">
+                        next <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+
                 </div>
             </form>
         </div >
@@ -157,7 +174,8 @@ function HeightStep({ nextStep, output, prevStep }) {
 
 
     // This is an array filled with objects for the <select/> tag with the heights.
-    // it conatains the format to be displayed and also the value in inches ex. [... {value: 68, label: 5'8"} ...]
+    // {value: number, label: string}[]
+    // label: ft'in"
     let heights = [];
     for (let i = 8; i > 2; i--) {
         for (let j = 11; j >= 0; j--) {
@@ -165,7 +183,7 @@ function HeightStep({ nextStep, output, prevStep }) {
         }
     }
 
-    const [heightInInches, setHeightInInches] = useState(68)
+    const [heightInInches, setHeightInInches] = useState(68) // arbitrary starting value
 
     function onInputChange(e) {
         const { value } = e.target;
@@ -185,7 +203,6 @@ function HeightStep({ nextStep, output, prevStep }) {
 
             {/* <label>Height: </label> */}
             <div className="height-form">
-
                 <select className='enter-height'
                     name="height"
                     value={heightInInches}
@@ -193,13 +210,16 @@ function HeightStep({ nextStep, output, prevStep }) {
                     required
                 >
                     {heights.map(h => (
-                        <option value={h.value}>{h.label}</option>
+                        <option value={h.value}>
+                            {h.label}
+                        </option>
                     ))}
                 </select>
             </div>
-            <br></br>
             <div>
-                <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+                <button type='button' onClick={prevStep}>
+                    <FontAwesomeIcon icon={faChevronLeft} /> prev
+                </button>
                 <button type='submit' value='submit'>
                     next <FontAwesomeIcon icon={faChevronRight} />
                 </button>
@@ -210,17 +230,17 @@ function HeightStep({ nextStep, output, prevStep }) {
 
 function AgeSexStep({ nextStep, output, prevStep }) {
 
-    const [mOrF, setMOrF] = useState('')
-    const [age, setAge] = useState('')
+    const [mOrF, setMOrF] = useState('m')
+    const [age, setAge] = useState(25)
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        nextStep && nextStep();
         output(mOrF, age)
+        nextStep && nextStep();
     }
 
     function handleAgeChange(e) {
-        const { name, value } = e.target;
+        const { value } = e.target;
         setAge(value)
     }
 
@@ -257,8 +277,12 @@ function AgeSexStep({ nextStep, output, prevStep }) {
             </div>
             <br></br>
             <div>
-                <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
-                <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
+                <button type='button' onClick={prevStep}>
+                    <FontAwesomeIcon icon={faChevronLeft} /> prev
+                </button>
+                <button type='submit'>
+                    next <FontAwesomeIcon icon={faChevronRight} />
+                </button>
             </div>
         </form>
     )
@@ -272,7 +296,7 @@ function WeightStep({ nextStep, prevStep, output }) {
         e.preventDefault();
         output(weight)
 
-        nextStep && nextStep();
+        // do not go to 'next step' 
     }
 
     function handleWeightChange(e) {
@@ -282,7 +306,9 @@ function WeightStep({ nextStep, prevStep, output }) {
     }
     return (
         <form onSubmit={handleFormSubmit}>
-            <h4 className='create-account-headers' >Body Weight in lbs</h4>
+            <h4 className='create-account-headers' >
+                Body Weight in lbs
+            </h4>
             <div className='weight-form' >
                 <label>weight</label>
                 <input
@@ -297,8 +323,11 @@ function WeightStep({ nextStep, prevStep, output }) {
                 />
             </div>
 
-            <button type='button' onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> prev</button>
-            <button type='submit'>next <FontAwesomeIcon icon={faChevronRight} /></button>
+            <button type='button' onClick={prevStep}>
+                <FontAwesomeIcon icon={faChevronLeft} /> prev</button>
+            <button type='submit'>
+                Finish
+            </button>
         </form>
     )
 }

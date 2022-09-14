@@ -42,11 +42,6 @@ export default function LoginForm() {
       .catch(() => { })
   }
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
-  }, [user]);
-
-
   return (
     <div className='login-form'>
       <form onSubmit={handleFormSubmit}>
