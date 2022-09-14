@@ -24,29 +24,22 @@
     padding: 1.25rem 2rem;
 
     width: fit-content;
-    margin: auto;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin: 0 auto;
 
 }
 
-.text-box {
-    padding: 10px;
-    width: 275px;
-}
 
-h4 {
+.login-form h4 {
     margin: 0;
     margin-bottom: 1rem;
     font-size: 22pt;
 }
 
-button.login {
+.login-form button.login {
     width: 100%;
-    margin-top: 0.5rem;
 }
 
-.password-input-container {
+.login-form .password-input-container {
     position: relative;
 }
 
@@ -65,4 +58,9 @@ input {
 
 label {
     font-size: 18px;
+}
+
+.signin-textbox,
+.text-box {
+    width: 220pt;
 }

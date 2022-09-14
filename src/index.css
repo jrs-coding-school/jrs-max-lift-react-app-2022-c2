@@ -13,6 +13,9 @@
 
   /* used for text and nav bar */
   --darkest: #313131;
+
+  /* accent color */
+  --aqua: #00c6cf;
 }
 
 body {
@@ -40,6 +43,8 @@ button {
   white-space: nowrap;
 
   background-color: #EBECF0;
+  color: var(--darkest);
+
   width: fit-content;
   padding: 0.5rem 1rem;
 
@@ -48,8 +53,8 @@ button {
 
 /* styles all hoverable buttons on app */
 button:hover {
-  background-color: #00c6cf;
   color: var(--darkest);
+  background-color: var(--aqua);
 }
 
 /* styles a secondary styling for butons on app */
@@ -60,7 +65,7 @@ button.primary {
 
 /* sytles all other buttons other than main nav login button */
 button.primary:hover {
-  background-color: #00c6cf;
+  background-color: var(--aqua);
   color: var(--darkest);
 }
 

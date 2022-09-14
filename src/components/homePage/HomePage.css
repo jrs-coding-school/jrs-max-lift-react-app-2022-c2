@@ -10,7 +10,7 @@ h3 {
 .calculate {
     color: var(--darkest);
     /* border: solid #595E6E; */
-    background-color: #00c6cf;
+    background-color: var(--aqua);
     /* box-shadow: 0 1px 4px 0 #140e0795; */
     padding: 0.5rem;
     height: 30pt;

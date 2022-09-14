@@ -65,11 +65,11 @@ nav .link:visited {
 }
 
 nav .link:hover {
-    color: #00c6cf;
+    color: var(--aqua);
 }
 
 nav .right .link {
-    color: #00c6cf;
+    color: var(--aqua);
 }
 
 nav .link:active {
