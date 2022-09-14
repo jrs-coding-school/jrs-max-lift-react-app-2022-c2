@@ -7,9 +7,8 @@ import http from '../../services/http.service'
 export default function NewPrForm() {
 
     const { activeUser } = useContext(UserContext)
-    // const login = useContext(VerifyUser);
 
-    let today = new (Date)
+    let today = new Date();
 
     function formatDate(date) {
 
@@ -29,17 +28,18 @@ export default function NewPrForm() {
     }
 
     const [formData, setFormData] = useState({
-        userId: activeUser.id,
         exerciseId: "0",
         max_weight: 0,
-        date: formatDate(today)
     });
+
+    let userId = activeUser.id
+    let date = formatDate(today)
 
     function handleFormSubmit(e) {
 
         e.preventDefault();
 
-        http.postNewPr(formData)
+        http.postNewPr(userId, formData.exerciseId, formData.max_weight, date)
             .then((response) => {
                 setFormData(response.data);
             })
@@ -63,12 +63,6 @@ export default function NewPrForm() {
                 [name]: value
             })
         }
-    }
-
-    const input = document.querySelector('input');
-
-    function handleTextInputClick(e) {
-        input.select();
     }
 
 
@@ -108,7 +102,6 @@ export default function NewPrForm() {
                     name='max_weight'
                     value={formData.max_weight}
                     onChange={handleInputChange}
-                    onClick={handleTextInputClick}
                 />
             </div>
 
