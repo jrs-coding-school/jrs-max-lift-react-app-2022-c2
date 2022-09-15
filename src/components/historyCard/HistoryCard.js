@@ -30,7 +30,12 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
                         <div className='max-weight'>{maxWeight}&nbsp;lb</div>
                     </div>
 
-                    <button onClick={toggleIsModalOpen}>Delete</button>
+                    <button
+                        onClick={toggleIsModalOpen}
+                        className='delete-button'
+                    >
+                        &#8592; Delete
+                    </button>
                 </div>
             </div>
 
@@ -50,6 +55,7 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
                             </button>
 
                             <button
+                                autoFocus
                                 type='submit'
                                 className='button-secondary'
                             >

@@ -136,12 +136,13 @@ function UsernamePasswordStep({ nextStep, output }) {
 
                     <div className='label-input-group'>
                         <label>Username: </label>
-                        <input className='text-box'
+                        <input autoFocus className='text-box'
                             type='text'
                             name='username'
                             value={username}
                             onChange={handleUsernameChange}
                             placeholder="username"
+                            required
                         />
                     </div>
 
@@ -153,6 +154,7 @@ function UsernamePasswordStep({ nextStep, output }) {
                             value={password}
                             onChange={handlePasswordChange}
                             placeholder="password"
+                            required
                         />
                         <div className='eye' onClick={() => setisPasswordVisible(!isPasswordVisible)}>
                             <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
@@ -203,7 +205,7 @@ function HeightStep({ nextStep, output, prevStep }) {
 
             {/* <label>Height: </label> */}
             <div className="height-form">
-                <select className='enter-height'
+                <select autoFocus className='enter-height'
                     name="height"
                     value={heightInInches}
                     onChange={onInputChange}
@@ -251,7 +253,7 @@ function AgeSexStep({ nextStep, output, prevStep }) {
             </h4>
             <div className='age-form'>
                 <label>Age: </label>
-                <input className="age-input"
+                <input autoFocus className="age-input"
                     type='number'
                     placeholder="25"
                     name='age'
@@ -313,6 +315,7 @@ function WeightStep({ nextStep, prevStep, output }) {
             <div className='weight-input' >
                 <label>Weight: </label>
                 <input
+                    autoFocus
                     type='number'
                     placeholder="lbs"
                     name='weight'

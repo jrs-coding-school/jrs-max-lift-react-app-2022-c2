@@ -9,3 +9,11 @@ main {
 .history-page-root {
     margin-top: 2.5rem;
 }
+
+.history-page-root .navigate {
+    cursor: pointer;
+}
+
+.history-page-root .navigate:hover {
+    text-decoration: underline;
+}

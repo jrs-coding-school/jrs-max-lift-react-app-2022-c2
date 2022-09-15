@@ -5,6 +5,7 @@ import http from '../../services/http.service'
 import { useFetch } from '../../hooks/useFetch'
 import LineChart from '../Charts/LineChart'
 import { UserContext } from '../../App'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function HistoryPage() {
@@ -12,6 +13,7 @@ export default function HistoryPage() {
   const { activeUser } = useContext(UserContext)
   const [selectExerciseId, setSelectExerciseId] = useState(null)
   const [fullHistory, reloadFullHistory] = useFetch(http.getUsersFullHistory, activeUser?.id, []);
+  const navigate = useNavigate();
 
 
   return (
@@ -19,9 +21,16 @@ export default function HistoryPage() {
 
       <h1>Your History</h1>
 
-      {fullHistory && <LineChart datasetValues={fullHistory} />}
+      {fullHistory.length != 0 && <LineChart datasetValues={fullHistory} />}
 
-      {fullHistory.length == 0 && <div>You dont have any previous history. Click here to get started.</div>}
+      {fullHistory.length == 0
+        && <div
+          onClick={() => { navigate('/progress') }}
+          className='navigate'
+        >
+          You dont have any previous history. Click here to get started.
+        </div>
+      }
 
       <HistoryData
         selectExerciseId={selectExerciseId}

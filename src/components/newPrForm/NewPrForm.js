@@ -74,7 +74,9 @@ export default function NewPrForm() {
             <div className='label-input-group'>
 
                 <label>Exercise: </label>
-                <select className='input-group'
+                <select
+                    autoFocus
+                    className='input-group'
                     value={formData.exerciseId}
                     name="exerciseId"
                     onChange={handleInputChange}

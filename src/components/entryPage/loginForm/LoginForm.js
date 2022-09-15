@@ -20,6 +20,7 @@ export default function LoginForm() {
     password: ''
   })
 
+
   function handleEntryFormChange(e) {
     const { name, value } = e.target;
     setUser({
@@ -49,7 +50,7 @@ export default function LoginForm() {
         <div className='inputs-container'>
           <div className='label-input-group'>
             <label>Username: </label>
-            <input className='text-box'
+            <input autoFocus className='text-box'
               type='text'
               name='username'
               value={user.username}
