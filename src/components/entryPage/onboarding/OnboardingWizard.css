@@ -26,13 +26,14 @@
 }
 
 .wizard-root .option.active {
-    color: var(--aqua);
+    background-color: var(--aqua);
 }
 
 .create-account-headers {
     display: grid;
     align-items: center;
     color: var(--darkest);
+    font-size: 18pt;
 }
 
 .wizard-root {
@@ -82,4 +83,12 @@ input {
     height: 27pt;
     width: 75px;
     font-size: 14pt;
+}
+
+div.line-chart-container {
+    border: solid 1px var(--darkest);
+    box-shadow: 0 5.5px 12px 0 var(--darkest);
+
+    border-radius: 5px;
+    padding: 3.5em;
 }

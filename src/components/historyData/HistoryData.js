@@ -25,7 +25,7 @@ export default function HistoryData({ selectExerciseId, setSelectExerciseId }) {
 
 
   return (
-    <div>
+    <div className='exercise-history'>
 
       {allPrs.map((pr, index) => (
         <HistoryExerciseSelect

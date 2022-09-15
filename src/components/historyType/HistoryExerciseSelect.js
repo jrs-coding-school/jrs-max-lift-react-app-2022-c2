@@ -10,10 +10,10 @@ export default function HistoryExerciseSelect({ name, exercise_id, setSelectExer
 
 
     return (
-        <div className='history-type-root'>
-            <div className='history-type-card' onClick={handleExerciseClick}>
-                {name}
-            </div>
+
+        <div className='history-type-card' onClick={handleExerciseClick}>
+            {name}
         </div>
+
     )
 }

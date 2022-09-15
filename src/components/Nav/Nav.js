@@ -50,7 +50,7 @@ export default function Nav({ logout }) {
           ? (
             <Link className='link' to="/login">
               <button className="login">
-                Sign in
+                Log in
               </button>
             </Link>
           )
