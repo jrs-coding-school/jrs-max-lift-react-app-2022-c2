@@ -11,6 +11,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+}
 
-
+.exercise-history .break {
+    width: 100vw;
 }

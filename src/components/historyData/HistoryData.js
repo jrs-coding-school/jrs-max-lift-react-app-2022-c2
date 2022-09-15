@@ -31,19 +31,23 @@ export default function HistoryData({ selectExerciseId, setSelectExerciseId }) {
         <HistoryExerciseSelect
           setSelectExerciseId={setSelectExerciseId}
           key={pr?.id}
+          selectExerciseId={selectExerciseId}
           {...pr}
         />
       ))}
 
-      <h2>Full Exercise History</h2>
+      <div className='break'></div>
 
-      {userHistory && (
-        userHistory.map((w, index) =>
-          <HistoryCard
-            key={w.id}
-            {...w}
-          />
-        ))}
+      <div className='exercise-history'>
+
+        {userHistory && (
+          userHistory.map((w, index) =>
+            <HistoryCard
+              key={w.id}
+              {...w}
+            />
+          ))}
+      </div>
     </div >
   )
 }

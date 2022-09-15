@@ -7,8 +7,12 @@
     padding: 1rem;
     background-color: #A6ABBD;
     border-radius: 5px;
+
+    cursor: pointer;
+    margin-top: 2rem;
+    user-select: none;
 }
 
-.history-type-card .selected {
-    background-color: bisque;
+.history-type-card.selected {
+    background-color: var(--aqua);
 }
