@@ -30,8 +30,8 @@ export default function NewPrForm() {
     }
 
     const [formData, setFormData] = useState({
-        exerciseId: "0",
-        maxWeight: 0,
+        exerciseId: "",
+        maxWeight: "",
     });
 
     let userId = activeUser.id
@@ -43,7 +43,8 @@ export default function NewPrForm() {
 
         http.postNewPr(userId, formData.exerciseId, formData.maxWeight, date)
             .then((response) => {
-                setFormData(response.data);
+                // setFormData(response.data);
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -74,7 +75,7 @@ export default function NewPrForm() {
 
                 <label>Exercise: </label>
                 <select className='input-group'
-                    value={EXERCISE_DATA.id}
+                    value={formData.exerciseId}
                     name="exerciseId"
                     onChange={handleInputChange}
                 >

@@ -86,7 +86,7 @@ export default function OnboardingWizard() {
             .then(res => {
                 let newUser = res.data
                 login && login(newUser)
-                navigate('/history')
+                navigate('/progress')
             })
             .catch(err => {
                 console.error(err)

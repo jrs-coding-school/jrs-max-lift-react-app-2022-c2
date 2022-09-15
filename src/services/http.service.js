@@ -29,7 +29,6 @@ function signup({ username, password, age, weight, height, sex }) {
 }
 
 function postNewPr(userId, exerciseId, maxWeight, date) {
-
     return axios.post(`${URL}/orms`, {
         userId,
         exerciseId,
@@ -45,6 +44,11 @@ function updateOrm(id, maxWeight) {
     });
 }
 
+function deletePr(id) {
+    console.log(id, typeof id)
+    return axios.delete(`${URL}/orms/${id}`);
+}
+
 
 export default {
     getUsersFullHistory,
@@ -54,5 +58,6 @@ export default {
     login,
     postNewPr,
     updateOrm,
+    deletePr,
     signup
 };

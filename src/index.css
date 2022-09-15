@@ -55,6 +55,7 @@ button {
 button:hover {
   color: var(--darkest);
   background-color: var(--aqua);
+  cursor: pointer;
 }
 
 /* styles a secondary styling for butons on app */
@@ -87,4 +88,8 @@ button.primary:hover {
 
 .label-input-group>* {
   display: block;
+}
+
+select {
+  cursor: pointer;
 }

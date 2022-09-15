@@ -11,11 +11,12 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
 
     function handleFormSubmit(e) {
         e.preventDefault()
-        // http update item
-        http.updateOrm(id, weightInput)
-            .then(setWeightInput(maxWeight))
+
+        http.deletePr(id)
             .then(toggleIsModalOpen)
-        //  .then -> maybe update state?
+            .then(console.log('test'))
+
+        window.location.reload();
     }
     return (
         <>
@@ -30,16 +31,16 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
                         <div className='max-weight'>{maxWeight}&nbsp;lb</div>
                     </div>
 
-                    <button onClick={toggleIsModalOpen}>Edit</button>
+                    <button onClick={toggleIsModalOpen}>Delete</button>
                 </div>
             </div>
             {isModalOpen && (
-                <Modal title="Edit Lift History"
+                <Modal title="Are you sure you want to delete this?"
                     closeModal={toggleIsModalOpen} >
                     <form onSubmit={handleFormSubmit}>
 
                         {/* inputs */}
-                        <div>
+                        {/* <div>
                             <label>Weight:
                                 <input type="text"
                                     value={weightInput}
@@ -49,10 +50,11 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
                                     placeholder='edit weight' />
                             </label>
 
-                        </div>
+                        </div> */}
                         {/* buttons */}
                         <div>
                             <button
+                                type='button'
                                 className='button-secondary'
                                 onClick={toggleIsModalOpen}
                             >
@@ -60,9 +62,10 @@ export default function HistoryCard({ name, date, id, maxWeight }) {
                             </button>
 
                             <button
+                                type='submit'
                                 className='button-secondary'
                             >
-                                Save Changes
+                                Delete
                             </button>
                         </div>
                     </form>

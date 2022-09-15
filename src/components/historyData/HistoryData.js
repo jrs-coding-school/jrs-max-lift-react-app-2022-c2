@@ -7,7 +7,7 @@ import HistoryExerciseSelect from '../historyType/HistoryExerciseSelect'
 import './HistoryData.css'
 
 
-export default function HistoryData({ typeOfHistory, selectExerciseId, setSelectExerciseId }) {
+export default function HistoryData({ selectExerciseId, setSelectExerciseId }) {
 
   const { activeUser } = useContext(UserContext)
   const [userHistory, setUserHistory] = useState('')
@@ -16,35 +16,12 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
   let userId = activeUser?.id;
 
   useEffect(() => {
-    changeHistoryType();
-  }, [typeOfHistory])
-
-
-  // TODO: fix the bug where the data doesn't load unless typeOfHistory is update
-  // Then delete this block of code
-  function changeHistoryType() {
-    if (typeOfHistory == 'full') {
-      http.getUsersFullHistory(userId)
-        .then((response) => {
-          setUserHistory(response.data)
-        })
-    } else if (typeOfHistory == 'prs') {
-      http.getAllPrs(userId)
-        .then((response) => {
-          setUserHistory(response.data)
-        })
-    } else if (typeOfHistory == 'prExercise') {
-      http.getPrForOneExercise(userId, selectExerciseId)
-        .then((response) => {
-          setUserHistory(response.data)
-        })
-    } else if (typeOfHistory == 'exercise') {
-      http.getExerciseHistory(userId, selectExerciseId)
-        .then((response) => {
-          setUserHistory(response.data)
-        })
-    }
-  }
+    // changeHistoryType();
+    http.getExerciseHistory(userId, selectExerciseId)
+      .then((response) => {
+        setUserHistory(response.data)
+      })
+  }, [selectExerciseId])
 
 
   return (
@@ -57,6 +34,8 @@ export default function HistoryData({ typeOfHistory, selectExerciseId, setSelect
           {...pr}
         />
       ))}
+
+      <h2>Full Exercise History</h2>
 
       {userHistory && (
         userHistory.map((w, index) =>
